@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title | default: site.title }}</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
+  <!-- CSS del sito -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
 
-  <!-- Consenti a browser/OS di usare light/dark -->
+  <!-- Icone Fluent (se vuoi usarle nei bottoni/menu) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css" />
+
+  <!-- Permetti a browser/OS di usare light/dark -->
   <meta name="color-scheme" content="light dark" />
 </head>
 
@@ -22,23 +24,18 @@
       <div class="wt-brand">
         <a class="wt-brand-link" href="{{ '/' | relative_url }}" aria-label="{{ site.brand.name }}">
           {% if site.brand.logo %}
-            <img
-              class="wt-logo"
-              src="{{ site.brand.logo | relative_url }}"
-              alt="{{ site.brand.name }} logo"
-              loading="eager"
-              width="32" height="32"
-              {% if site.brand.logo_dark %}
-                data-logo-light="{{ site.brand.logo | relative_url }}"
-                data-logo-dark="{{ site.brand.logo_dark | relative_url }}"
-              {% endif %}
-            />
+            <!-- Se hai anche una variante scura, valorizza data-logo-dark -->
+            <img src="{{ site.brand.logo | relative_url }}"
+                 class="wt-logo"
+                 alt="Logo {{ site.brand.name }}"
+                 data-logo-light="{{ site.brand.logo | relative_url }}"
+                 {% if site.brand.logo_dark %} data-logo-dark="{{ site.brand.logo_dark | relative_url }}" {% endif %} />
           {% endif %}
           <span class="wt-brand-text">{{ site.brand.name }}</span>
         </a>
       </div>
 
-      <!-- Switch tema -->
+      <!-- Bottone cambio tema -->
       <button class="wt-theme-toggle" type="button" aria-label="Cambia tema" onclick="WT.toggleTheme()">
         <span class="wt-theme-ico wt-sun" aria-hidden="true">☀️</span>
         <span class="wt-theme-ico wt-moon" aria-hidden="true">🌙</span>
@@ -90,4 +87,11 @@
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- JS del sito -->
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  <script>
+    // Applica il tema memorizzato appena carica la pagina
+    if (window.WT && WT.applyStoredTheme) WT.applyStoredTheme();
+  </script>
+</body>
+</html>
