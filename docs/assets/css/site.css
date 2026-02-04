@@ -1,35 +1,38 @@
-/* Buttons */
-.wt-btn {
-  display: inline-block;
+/* FLUENT UI BUTTONS */
+.fluent-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 10px 18px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: all .15s ease;
-  margin-right: 8px;
+  cursor: pointer;
 }
 
-.wt-btn-primary {
-  background: var(--accent);
+/* Primary */
+.fluent-primary {
+  background: #0078d4;
   color: white !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
 }
-.wt-btn-primary:hover {
-  background: #1f8ea0;
-  box-shadow: 0 6px 16px rgba(0,0,0,.18);
-}
-
-.wt-btn-secondary {
-  background: white;
-  color: var(--brand) !important;
-  border: 2px solid var(--brand);
-}
-.wt-btn-secondary:hover {
-  background: #eaf3ff;
+.fluent-primary:hover {
+  background: #106ebe;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
 }
 
-/* CTA grande nella Hero */
-.wt-cta-lg {
-  font-size: 1.15rem;
-  padding: 14px 24px;
+/* Secondary */
+.fluent-secondary {
+  background: #f3f2f1;
+  color: #323130 !important;
+  border: 1px solid #e1dfdd;
+}
+.fluent-secondary:hover {
+  background: #e1dfdd;
+}
+
+/* Icon spacing (optional) */
+.fluent-btn > i {
+  font-size: 1.2em;
 }
