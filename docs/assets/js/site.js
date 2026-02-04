@@ -1,6 +1,7 @@
-const WT = {
-  toggleSidebar: function () {
-    const sb = document.getElementById("wt-sidebar");
-    sb.classList.toggle("open");
-  }
-}
+// Namespace globale semplice
+window.WT = window.WT || {};
+
+WT.toggleSidebar = function () {
+  var sb = document.getElementById('wt-sidebar');
+  if (sb) sb.classList.toggle('open');
+};
