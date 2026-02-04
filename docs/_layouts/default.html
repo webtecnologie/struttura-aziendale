@@ -17,9 +17,14 @@
   <!-- HEADER / NAVBAR -->
   <header class="wt-header">
     <div class="wt-container wt-nav">
-      <div class="wt-brand">
-        <a href="{{ '/' | relative_url }}">{{ site.brand.name }}</a>
-      </div>
+      
+<div class="wt-brand">
+  <a href="{{ '/' | relative_url }}">
+    <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="WebTecnologie Logo" class="wt-logo">
+    {{ site.brand.name }}
+  </a>
+</div>
+
 
       <button class="wt-burger" aria-label="Apri menu" aria-expanded="false" onclick="WT.toggleSidebar()">
         ☰
