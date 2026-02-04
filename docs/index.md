@@ -3,13 +3,13 @@ layout: default
 title: WebTecnologie — Soluzioni Digitali e Applicazioni Moderne
 ---
 
-<div class="wt-hero wt-container">
+<div class="wt-hero">
   <h1>Soluzioni Digitali, Cloud & AI</h1>
   <p>
     Sviluppo web e applicazioni moderne con integrazioni AI per ambienti cloud,
     piattaforme enterprise e siti WordPress personalizzati.
   </p>
-  {{ site.baseurl }}/progetti{: .wt-cta }
+  <a class="wt-cta" href="{{ '/progetti' | relative_url }}">Vedi i Progetti</a>
 </div>
 
 ## 🔧 Cosa facciamo
