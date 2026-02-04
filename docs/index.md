@@ -10,25 +10,32 @@ title: WebTecnologie — Soluzioni Digitali e Applicazioni Moderne
     piattaforme enterprise e siti WordPress personalizzati.
   </p>
 
-  {{ 
+  <a class="wt-btn" href="/struttura-aziendale/progetti">
     🚀 Vedi i Progetti
   </a>
 </div>
 
 ## 🔧 Cosa facciamo
+
 - **Sviluppo Web Moderno** (React, Next.js, SPFx)
 - **Backend scalabili** (Python, Node.js, PHP)
 - **AI applicata** (chatbot, automazioni, ML)
 - **Cloud & Enterprise** (Microsoft 365, Azure, Graph)
 - **WordPress pro** (temi custom, API, performance)
 
+---
+
 ## 📌 In evidenza
-**Struttura Aziendale — Web Part SPFx**
+
+### **Struttura Aziendale — Web Part SPFx**
+
+Organigramma dinamico + directory degli utenti integrata con Microsoft 365.
+
+🔗 **Demo pubblica**  
+https://webtecnologie.github.io/struttura-aziendale/
+
+🔗 **Codice open source**  
+https://github.com/webtecnologie/struttura-aziendale
 
 <div style="margin-top:12px;">
-  https://webtecnologie.github.io/struttura-aziendale/
-
-  https://github.com/webtecnologie/struttura-aziendale
-     🧩 Codice
-  </a>
 </div>
