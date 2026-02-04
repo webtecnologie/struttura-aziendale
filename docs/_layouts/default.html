@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
 </head>
@@ -16,9 +14,12 @@
   <!-- HEADER -->
   <header class="wt-header">
     <div class="wt-container wt-nav">
+
       <div class="wt-brand">
         <a href="{{ '/' | relative_url }}">
-          <img src="{{ '/assets/img/logo.png' | relative_url }}" class="wt-logo" alt="Logo">
+          {% if site.brand.logo %}
+            <img src="{{ site.brand.logo | relative_url }}" class="wt-logo" alt="Logo">
+          {% endif %}
           {{ site.brand.name }}
         </a>
       </div>
@@ -30,6 +31,7 @@
           <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
+
     </div>
   </header>
 
@@ -54,12 +56,11 @@
 
   <!-- FOOTER -->
   <footer class="wt-footer">
-    <div class="wt-container" style="color: white;">
+    <div class="wt-container" style="color:white;">
       © {{ site.time | date: "%Y" }} {{ site.brand.name }} — Tutti i diritti riservati
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 
 </body>
