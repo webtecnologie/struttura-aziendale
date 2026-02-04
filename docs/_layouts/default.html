@@ -4,31 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ site.description | default: site.title }}" />
 
-  <!-- CSS principale -->
+  <!-- CSS PRINCIPALE -->
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
 
-  <!-- (Opzionale) Fluent UI Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons@1.1.214/fonts/fluent-icons.css">
+  <!-- Fluent UI Icons (facoltativo) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
 </head>
+
 <body>
 
-  <!-- HEADER / NAVBAR -->
+  <!-- NAVBAR -->
   <header class="wt-header">
     <div class="wt-container wt-nav">
-      
-<div class="wt-brand">
-  <a href="{{ '/' | relative_url }}">
-    <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="WebTecnologie Logo" class="wt-logo">
-    {{ site.brand.name }}
-  </a>
-</div>
 
+      <!-- LOGO + BRAND -->
+      <div class="wt-brand">
+        <a href="{{ '/' | relative_url }}">
+          <img src="{{ '/assets/img/logo.png' | relative_url }}" class="wt-logo" alt="Logo">
+          {{ site.brand.name }}
+        </a>
+      </div>
 
-      <button class="wt-burger" aria-label="Apri menu" aria-expanded="false" onclick="WT.toggleSidebar()">
-        ☰
-      </button>
+      <button class="wt-burger" onclick="WT.toggleSidebar()">☰</button>
 
       <nav class="wt-menu">
         {% for item in site.nav %}
@@ -38,29 +36,34 @@
     </div>
   </header>
 
-  <!-- SIDEBAR (toggle su mobile) -->
-  <aside id="wt-sidebar" class="wt-sidebar" aria-hidden="true">
+  <!-- SIDEBAR MOBILE -->
+  <aside id="wt-sidebar" class="wt-sidebar">
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
-      <button class="wt-close" aria-label="Chiudi" onclick="WT.toggleSidebar()">×</button>
+      <button onclick="WT.toggleSidebar()">×</button>
     </div>
+
     <nav class="wt-sidebar-links">
       {% for item in site.nav %}
-        <a href="{{ item.url | relative_url }}" onclick="WT.toggleSidebar()">{{ item.name }}</a>
+        <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
       {% endfor %}
     </nav>
   </aside>
 
+  <!-- CONTENUTO -->
   <main class="wt-main wt-container">
     {{ content }}
   </main>
 
+  <!-- FOOTER -->
   <footer class="wt-footer">
-    <div class="wt-container">
-      <p>© {{ site.time | date: '%Y' }} {{ site.brand.name }} — Tutti i diritti riservati</p>
+    <div class="wt-container" style="color:white;">
+      © {{ site.time | date: "%Y" }} {{ site.brand.name }} — Tutti i diritti riservati
     </div>
   </footer>
 
   <!-- JS -->
   <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+
 </body>
+</html>
