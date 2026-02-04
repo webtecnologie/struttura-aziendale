@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>{{ page.title | default: site.title }}</title>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header class="wt-header">
     <div class="wt-container wt-nav">
       <div class="wt-brand">
@@ -30,6 +33,7 @@
     </div>
   </header>
 
+  <!-- SIDEBAR -->
   <aside id="wt-sidebar" class="wt-sidebar">
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
@@ -43,16 +47,19 @@
     </nav>
   </aside>
 
+  <!-- MAIN -->
   <main class="wt-main wt-container">
     {{ content }}
   </main>
 
+  <!-- FOOTER -->
   <footer class="wt-footer">
     <div class="wt-container" style="color: white;">
       © {{ site.time | date: "%Y" }} {{ site.brand.name }} — Tutti i diritti riservati
     </div>
   </footer>
 
+  <!-- JS -->
   <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 
 </body>
