@@ -8,7 +8,7 @@
   <!-- CSS del sito -->
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
 
-  <!-- Icone Fluent (se vuoi usarle nei bottoni/menu) -->
+  <!-- Icone Fluent (opzionali) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css" />
 
   <!-- Permetti a browser/OS di usare light/dark -->
@@ -16,15 +16,15 @@
 </head>
 
 <body class="wt-body">
+
   <!-- HEADER -->
   <header class="wt-header">
     <div class="wt-container wt-nav" role="navigation" aria-label="Navigazione principale">
 
-      <!-- BRAND: logo a sinistra + nome -->
+      <!-- BRAND -->
       <div class="wt-brand">
         <a class="wt-brand-link" href="{{ '/' | relative_url }}" aria-label="{{ site.brand.name }}">
           {% if site.brand.logo %}
-            <!-- Se hai anche una variante scura, valorizza data-logo-dark -->
             <img src="{{ site.brand.logo | relative_url }}"
                  class="wt-logo"
                  alt="Logo {{ site.brand.name }}"
@@ -35,26 +35,29 @@
         </a>
       </div>
 
-      <!-- Bottone cambio tema -->
-      <button class="wt-theme-toggle" type="button" aria-label="Cambia tema" onclick="WT.toggleTheme()">
-        <span class="wt-theme-ico wt-sun" aria-hidden="true">☀️</span>
-        <span class="wt-theme-ico wt-moon" aria-hidden="true">🌙</span>
-      </button>
+      <!-- LANGUAGE SWITCHER -->
+      <div class="wt-lang">
+        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ '/' | relative_url }}">IT</a>
+        <span class="wt-lang-sep">|</span>
+        <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ '/en/' | relative_url }}">EN</a>
+      </div>
 
-      <!-- Burger mobile -->
+      <!-- BURGER per MOBILE -->
       <button class="wt-burger" type="button" aria-label="Apri/chiudi menu" onclick="WT.toggleSidebar()">☰</button>
 
-      <!-- MENU desktop -->
+      <!-- MENU DESKTOP -->
       <nav class="wt-menu" aria-label="Menu">
         {% for item in site.nav %}
           <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
+
     </div>
   </header>
 
-  <!-- SIDEBAR mobile -->
+  <!-- SIDEBAR MOBILE -->
   <aside id="wt-sidebar" class="wt-sidebar" aria-label="Menu laterale" aria-hidden="true">
+
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
       <button type="button" aria-label="Chiudi" onclick="WT.toggleSidebar()">×</button>
@@ -66,13 +69,15 @@
       {% endfor %}
     </nav>
 
+    <!-- LANGUAGE SWITCHER mobile -->
     <div class="wt-sidebar-theme">
-      <button class="wt-theme-toggle" type="button" onclick="WT.toggleTheme()">
-        <span class="wt-theme-ico wt-sun">☀️</span>
-        <span class="wt-theme-ico wt-moon">🌙</span>
-        <span class="wt-theme-text">Tema</span>
-      </button>
+      <div class="wt-lang">
+        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ '/' | relative_url }}">IT</a>
+        <span class="wt-lang-sep">|</span>
+        <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ '/en/' | relative_url }}">EN</a>
+      </div>
     </div>
+
   </aside>
 
   <!-- MAIN -->
@@ -87,11 +92,12 @@
     </div>
   </footer>
 
-  <!-- JS del sito -->
+  <!-- JS -->
   <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
   <script>
-    // Applica il tema memorizzato appena carica la pagina
     if (window.WT && WT.applyStoredTheme) WT.applyStoredTheme();
   </script>
+
 </body>
 </html>
+``
