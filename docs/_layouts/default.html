@@ -4,10 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ site.description }}" />
-  {{ site.baseurl }}/assets/css/site.css
-  <!-- Facoltativo: Fluent UI System Icons (SVG via CSS) -->
-  https://cdn.jsdelivr.net/npm/@fluentui/svg-icons@1.1.214/fonts/fluent-icons.css
+  <meta name="description" content="{{ site.description | default: site.title }}" />
+
+  <!-- CSS principale -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+
+  <!-- (Opzionale) Fluent UI Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons@1.1.214/fonts/fluent-icons.css">
 </head>
 <body>
 
@@ -15,7 +18,7 @@
   <header class="wt-header">
     <div class="wt-container wt-nav">
       <div class="wt-brand">
-        {{ site.baseurl }}/{{ site.brand.name }}</a>
+        <a href="{{ '/' | relative_url }}">{{ site.brand.name }}</a>
       </div>
 
       <button class="wt-burger" aria-label="Apri menu" aria-expanded="false" onclick="WT.toggleSidebar()">
@@ -24,7 +27,7 @@
 
       <nav class="wt-menu">
         {% for item in site.nav %}
-          {{ site.baseurl }}{{ item.url | replace: {{ item.name }}</a>
+          <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
     </div>
@@ -38,7 +41,7 @@
     </div>
     <nav class="wt-sidebar-links">
       {% for item in site.nav %}
-        {{ site.baseurl }}{{ item.url | replace: {{ item.name }}</a>
+        <a href="{{ item.url | relative_url }}" onclick="WT.toggleSidebar()">{{ item.name }}</a>
       {% endfor %}
     </nav>
   </aside>
@@ -53,6 +56,6 @@
     </div>
   </footer>
 
-  {{ site.baseurl }}/assets/js/site.js</script>
+  <!-- JS -->
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 </body>
-</html>
