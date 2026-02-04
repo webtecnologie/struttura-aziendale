@@ -35,11 +35,31 @@
         </a>
       </div>
 
+      {%- comment -%}
+        LANGUAGE SWITCHER ROBUSTO:
+        - Calcola gli URL IT/EN in base alla pagina corrente (page.url).
+        - Se la lingua EN non è abilitata (docs/_data/i18n.yml: en_enabled: false),
+          mostra EN disabilitato (no 404).
+      {%- endcomment -%}
+      {%- assign current_url = page.url | default: '/' -%}
+      {%- assign is_en = current_url | slice: 0,4 == '/en/' -%}
+      {%- if is_en -%}
+        {%- assign url_it = current_url | remove_first: '/en' -%}
+        {%- assign url_en = current_url -%}
+      {%- else -%}
+        {%- assign url_it = current_url -%}
+        {%- assign url_en = '/en' | append: current_url -%}
+      {%- endif -%}
+
       <!-- LANGUAGE SWITCHER -->
       <div class="wt-lang">
-        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ '/' | relative_url }}">IT</a>
+        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ url_it | relative_url }}">IT</a>
         <span class="wt-lang-sep">|</span>
-        <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ '/en/' | relative_url }}">EN</a>
+        {% if site.data.i18n and site.data.i18n.en_enabled %}
+          <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
+        {% else %}
+          <span class="wt-lang-item wt-disabled" title="Coming soon">EN</span>
+        {% endif %}
       </div>
 
       <!-- BURGER per MOBILE -->
@@ -72,9 +92,13 @@
     <!-- LANGUAGE SWITCHER mobile -->
     <div class="wt-sidebar-theme">
       <div class="wt-lang">
-        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ '/' | relative_url }}">IT</a>
+        <a class="wt-lang-item {% if page.lang == 'it' or page.lang == nil %}active{% endif %}" href="{{ url_it | relative_url }}">IT</a>
         <span class="wt-lang-sep">|</span>
-        <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ '/en/' | relative_url }}">EN</a>
+        {% if site.data.i18n and site.data.i18n.en_enabled %}
+          <a class="wt-lang-item {% if page.lang == 'en' %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
+        {% else %}
+          <span class="wt-lang-item wt-disabled" title="Coming soon">EN</span>
+        {% endif %}
       </div>
     </div>
 
@@ -100,4 +124,3 @@
 
 </body>
 </html>
-``
