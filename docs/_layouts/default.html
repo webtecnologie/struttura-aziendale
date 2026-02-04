@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title | default: site.title }}</title>
 
-  {{ 
-  https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
 
-  <!-- Tema scuro automatico -->
-  <meta name="color-scheme" content="light dark">
+  <!-- Consenti a browser/OS di usare light/dark -->
+  <meta name="color-scheme" content="light dark" />
 </head>
 
 <body class="wt-body">
-
   <!-- HEADER -->
   <header class="wt-header">
-    <div class="wt-container wt-nav">
+    <div class="wt-container wt-nav" role="navigation" aria-label="Navigazione principale">
 
-      <!-- BRAND: logo + nome -->
+      <!-- BRAND: logo a sinistra + nome -->
       <div class="wt-brand">
-        <a href="{{ '/' | relative_url }}" class="wt-brand-link">
+        <a class="wt-brand-link" href="{{ '/' | relative_url }}" aria-label="{{ site.brand.name }}">
           {% if site.brand.logo %}
-            <img src="{{ site.brand.logo | relative_url }}" 
-                 class="wt-logo" 
-                 alt="Logo">
+            <img
+              class="wt-logo"
+              src="{{ site.brand.logo | relative_url }}"
+              alt="{{ site.brand.name }} logo"
+              loading="eager"
+              width="32" height="32"
+              {% if site.brand.logo_dark %}
+                data-logo-light="{{ site.brand.logo | relative_url }}"
+                data-logo-dark="{{ site.brand.logo_dark | relative_url }}"
+              {% endif %}
+            />
           {% endif %}
           <span class="wt-brand-text">{{ site.brand.name }}</span>
         </a>
       </div>
 
-      <!-- Toggle sidebar mobile -->
-      <button class="wt-burger" onclick="WT.toggleSidebar()">☰</button>
+      <!-- Switch tema -->
+      <button class="wt-theme-toggle" type="button" aria-label="Cambia tema" onclick="WT.toggleTheme()">
+        <span class="wt-theme-ico wt-sun" aria-hidden="true">☀️</span>
+        <span class="wt-theme-ico wt-moon" aria-hidden="true">🌙</span>
+      </button>
+
+      <!-- Burger mobile -->
+      <button class="wt-burger" type="button" aria-label="Apri/chiudi menu" onclick="WT.toggleSidebar()">☰</button>
 
       <!-- MENU desktop -->
-      <nav class="wt-menu">
+      <nav class="wt-menu" aria-label="Menu">
         {% for item in site.nav %}
           <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
-
-      <!-- SWITCH DARK-MODE -->
-      <button class="wt-theme-toggle" onclick="WT.toggleTheme()">
-        <span class="light-icon">☀️</span>
-        <span class="dark-icon">🌙</span>
-      </button>
-
     </div>
   </header>
 
-  <!-- SIDEBAR MOBILE -->
-  <aside id="wt-sidebar" class="wt-sidebar">
+  <!-- SIDEBAR mobile -->
+  <aside id="wt-sidebar" class="wt-sidebar" aria-label="Menu laterale" aria-hidden="true">
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
-      <button onclick="WT.toggleSidebar()">×</button>
+      <button type="button" aria-label="Chiudi" onclick="WT.toggleSidebar()">×</button>
     </div>
 
     <nav class="wt-sidebar-links">
@@ -62,10 +69,13 @@
       {% endfor %}
     </nav>
 
-    <!-- Switch tema anche nel menu laterale -->
-    <button class="wt-theme-toggle sidebar-toggle" onclick="WT.toggleTheme()">
-      🌙 / ☀️
-    </button>
+    <div class="wt-sidebar-theme">
+      <button class="wt-theme-toggle" type="button" onclick="WT.toggleTheme()">
+        <span class="wt-theme-ico wt-sun">☀️</span>
+        <span class="wt-theme-ico wt-moon">🌙</span>
+        <span class="wt-theme-text">Tema</span>
+      </button>
+    </div>
   </aside>
 
   <!-- MAIN -->
@@ -80,6 +90,4 @@
     </div>
   </footer>
 
-  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
-</body>
-</html>
+  <!-- JS -->
