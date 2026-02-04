@@ -5,37 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }}</title>
 
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
+  {{ 
+  https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css
+
+  <!-- Tema scuro automatico -->
+  <meta name="color-scheme" content="light dark">
 </head>
 
-<body>
+<body class="wt-body">
 
   <!-- HEADER -->
   <header class="wt-header">
     <div class="wt-container wt-nav">
 
+      <!-- BRAND: logo + nome -->
       <div class="wt-brand">
-        <a href="{{ '/' | relative_url }}">
+        <a href="{{ '/' | relative_url }}" class="wt-brand-link">
           {% if site.brand.logo %}
-            <img src="{{ site.brand.logo | relative_url }}" class="wt-logo" alt="Logo">
+            <img src="{{ site.brand.logo | relative_url }}" 
+                 class="wt-logo" 
+                 alt="Logo">
           {% endif %}
-          {{ site.brand.name }}
+          <span class="wt-brand-text">{{ site.brand.name }}</span>
         </a>
       </div>
 
+      <!-- Toggle sidebar mobile -->
       <button class="wt-burger" onclick="WT.toggleSidebar()">☰</button>
 
+      <!-- MENU desktop -->
       <nav class="wt-menu">
         {% for item in site.nav %}
           <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
         {% endfor %}
       </nav>
 
+      <!-- SWITCH DARK-MODE -->
+      <button class="wt-theme-toggle" onclick="WT.toggleTheme()">
+        <span class="light-icon">☀️</span>
+        <span class="dark-icon">🌙</span>
+      </button>
+
     </div>
   </header>
 
-  <!-- SIDEBAR -->
+  <!-- SIDEBAR MOBILE -->
   <aside id="wt-sidebar" class="wt-sidebar">
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
@@ -47,6 +61,11 @@
         <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
       {% endfor %}
     </nav>
+
+    <!-- Switch tema anche nel menu laterale -->
+    <button class="wt-theme-toggle sidebar-toggle" onclick="WT.toggleTheme()">
+      🌙 / ☀️
+    </button>
   </aside>
 
   <!-- MAIN -->
@@ -56,12 +75,11 @@
 
   <!-- FOOTER -->
   <footer class="wt-footer">
-    <div class="wt-container" style="color:white;">
+    <div class="wt-container">
       © {{ site.time | date: "%Y" }} {{ site.brand.name }} — Tutti i diritti riservati
     </div>
   </footer>
 
   <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
-
 </body>
 </html>
