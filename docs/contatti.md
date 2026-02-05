@@ -7,18 +7,15 @@ permalink: /contatti/
 
 # Contatti
 
-Hai un progetto, un’idea o vuoi una consulenza?
+Hai un progetto? Possiamo aiutarti a realizzarlo.
 
-📧 **Email:** info@webtecnologie.it  
-🌍 **Sito:** https://webtecnologie.it  
-💼 Supporto, sviluppi, consulenze e progetti su misura.
-
-### 📱 Richiedi un contatto
-Compila il modulo o invia un’email per ricevere una risposta entro 24 ore.
+📧 Email: **info@webtecnologie.it**  
+🌍 Sito: **https://webtecnologie.it**
 
 ---
 
-## Perché contattarci?
-- Soluzioni professionali e scalabili  
-- Integrazioni AI per automazioni e crescita  
-- Supporto tecnico e consulenza strategica  
+## 💬 Mettiamoci in Contatto
+- Risposte rapide
+- Supporto dedicato
+- Consulenze su misura
+- Preventivi senza impegno
