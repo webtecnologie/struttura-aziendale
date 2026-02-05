@@ -7,30 +7,44 @@ permalink: /servizi/
 
 # Servizi
 
-## 🚀 Soluzioni digitali su misura  
-Progettiamo e sviluppiamo soluzioni moderne, sicure e performanti pensate per aziende, professionisti e organizzazioni.
+Trasformiamo idee in soluzioni digitali performanti, scalabili e integrate.
 
-### 💻 Sviluppo Web
-- Applicazioni moderne (React, Next.js)
-- Siti performanti e responsive
-- Integrazioni API avanzate
+---
 
-### ⚙️ Backend & API
-- Python, Node.js, PHP
-- Microservizi e architetture scalabili
-- Sicurezza, autenticazione, logging
+## 🌐 Siti Web & Applicazioni
+- Sviluppo moderno con **React / Next.js**
+- UI/UX professionale
+- Layout responsive e accessibile
+- CMS headless o tradizionale
 
-### 🤖 Intelligenza Artificiale
-- Chatbot e assistenti virtuali
-- Automazioni AI
-- Modelli ML personalizzati
+---
 
-### ☁️ Cloud & Enterprise
-- Microsoft 365 / Azure
-- SharePoint Online, SPFx
-- Sistemi ibridi e integrazioni enterprise
+## ⚙️ Backend & API
+- Architetture scalabili
+- Microservizi Docker
+- API REST/GraphQL
+- Sicurezza, logging, autenticazione
 
-### 🌐 WordPress Professional
+---
+
+## 🤖 AI & Automazione
+- Chatbot intelligenti
+- Assistenti AI aziendali
+- Automazioni operative
+- Analisi e predizione con ML
+
+---
+
+## ☁️ Cloud & Enterprise
+- Microsoft 365 & SharePoint Online
+- App SPFx personalizzate
+- Automazioni Azure
+- Integrazioni Graph API
+
+---
+
+## 🧰 WordPress Avanzato
 - Temi custom professionali
-- ACF, CPT, API REST
-- Ottimizzazioni performance & sicurezza
+- Funzionalità avanzate con ACF/CPT
+- API headless per app esterne
+- Ottimizzazione SEO & prestazioni
