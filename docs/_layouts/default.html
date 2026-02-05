@@ -7,18 +7,24 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}" />
-  <!-- Icone Fluent (opzionali) -->
+
+  <!-- Icone Fluent -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css" />
+
   <meta name="color-scheme" content="light dark" />
 </head>
 
 <body class="wt-body">
 
   {%- comment -%}
-    Calcolo link lingua IT/EN in base alla pagina corrente
+    ===========================================
+    CALCOLO LINGUA IT / EN
+    ===========================================
   {%- endcomment -%}
+
   {%- assign current_url = page.url | default: '/' -%}
   {%- assign is_en = current_url | slice: 0,4 == '/en/' -%}
+
   {%- if is_en -%}
     {%- assign url_it = current_url | remove_first: '/en' -%}
     {%- assign url_en = current_url -%}
@@ -26,6 +32,7 @@
     {%- assign url_it = current_url -%}
     {%- assign url_en = '/en' | append: current_url -%}
   {%- endif -%}
+
   {%- assign en_enabled = site.data.i18n.en_enabled | default: false -%}
 
   <!-- HEADER -->
@@ -53,17 +60,19 @@
         {% if en_enabled %}
           <a class="wt-lang-item {% if is_en %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
         {% else %}
-          <span class="wt-lang-item wt-disabled" title="Coming soon">EN</span>
+          <span class="wt-lang-item wt-disabled">EN</span>
         {% endif %}
       </div>
 
-      <!-- BURGER (mobile) -->
+      <!-- BURGER -->
       <button class="wt-burger" type="button" aria-label="Apri/chiudi menu" onclick="WT.toggleSidebar()">☰</button>
 
       <!-- MENU DESKTOP -->
-      
-      {%- assign nav_items = site.nav -%}
-      {%- if is_en and site.nav_en -%}{% assign nav_items = site.nav_en %}{% endif -%}
+      {% assign nav_items = site.nav %}
+      {% if is_en and site.nav_en %}
+        {% assign nav_items = site.nav_en %}
+      {% endif %}
+
       <nav class="wt-menu" aria-label="Menu">
         {% for item in nav_items %}
           <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
@@ -74,21 +83,27 @@
   </header>
 
   <!-- SIDEBAR MOBILE -->
+  {% assign nav_items_sidebar = site.nav %}
+  {% if is_en and site.nav_en %}
+    {% assign nav_items_sidebar = site.nav_en %}
+  {% endif %}
+
   <aside id="wt-sidebar" class="wt-sidebar" aria-label="Menu laterale" aria-hidden="true">
+
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
       <button type="button" aria-label="Chiudi" onclick="WT.toggleSidebar()">×</button>
     </div>
 
     <nav class="wt-sidebar-links">
-      {% for item in nav_items %}
+      {% for item in nav_items_sidebar %}
         <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
       {% endfor %}
     </nav>
 
-    <!-- LANGUAGE SWITCHER mobile -->
+    <!-- LANGUAGE SWITCHER MOBILE -->
     <div class="wt-sidebar-theme">
-      <div class="wt-lang">
+      <div class="wt-lang wt-lang-mobile">
         <a class="wt-lang-item {% unless is_en %}active{% endunless %}" href="{{ url_it | relative_url }}">IT</a>
         <span class="wt-lang-sep">|</span>
         {% if en_enabled %}
@@ -98,6 +113,7 @@
         {% endif %}
       </div>
     </div>
+
   </aside>
 
   <!-- MAIN -->
@@ -117,5 +133,6 @@
   <script>
     if (window.WT && WT.applyStoredTheme) WT.applyStoredTheme();
   </script>
+
 </body>
 </html>
