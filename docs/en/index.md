@@ -14,26 +14,39 @@ permalink: /en/
   </p>
 </div>
 
----
-
 ## 🚀 What We Offer
 
-### 🌐 Modern Web Development
-High-performance websites and apps built with
-**React, Next.js, SPFx, HTML5, CSS.**
+<div class="wt-tabs-container">
+  <div class="wt-tabs-nav">
+    <button class="wt-tab-btn active" onclick="WT.switchTab('web', this)">Web Development</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('backend', this)">Backend</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('ai', this)">AI & Automation</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('cloud', this)">Cloud</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('wp', this)">WordPress</button>
+  </div>
 
-### ⚙️ Backend & Integrations
-Reliable server-side solutions:
-**Node.js, Python, PHP, REST APIs, microservices.**
+  <div id="web" class="wt-tab-content active">
+    <h3>🌐 Modern Web Development</h3>
+    <p>High-performance websites and apps built with <strong>React, Next.js, SPFx, HTML5, CSS.</strong></p>
+  </div>
 
-### 🤖 Applied AI & Automation
-Chatbots, automations, predictive models with
-**OpenAI, custom AI, RAG systems.**
+  <div id="backend" class="wt-tab-content">
+    <h3>⚙️ Backend & Integrations</h3>
+    <p>Reliable server-side solutions: <strong>Node.js, Python, PHP, REST APIs, microservices.</strong></p>
+  </div>
 
-### ☁️ Cloud & Enterprise
-Professional integrations for:
-**Microsoft 365, SharePoint Online, Azure, Graph API.**
+  <div id="ai" class="wt-tab-content">
+    <h3>🤖 Applied AI & Automation</h3>
+    <p>Chatbots, automations, predictive models with <strong>OpenAI, custom AI, RAG systems.</strong></p>
+  </div>
 
-### 🏗 Professional WordPress
-Advanced WordPress development:
-**custom themes, ACF, CPT, API, performance optimization.**
+  <div id="cloud" class="wt-tab-content">
+    <h3>☁️ Cloud & Enterprise</h3>
+    <p>Professional integrations for: <strong>Microsoft 365, SharePoint Online, Azure, Graph API.</strong></p>
+  </div>
+
+  <div id="wp" class="wt-tab-content">
+    <h3>🏗 Professional WordPress</h3>
+    <p>Advanced WordPress development: <strong>custom themes, ACF, CPT, API, performance optimization.</strong></p>
+  </div>
+</div>
