@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: 'it' }}">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title | default: site.title }}</title>
+  <title>{{ page.title | default: site.title }} — {{ site.brand.name }}</title>
 
-  {{ 
-  https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fluentui/svg-icons/fonts/fluent-icons.css">
   <meta name="color-scheme" content="light dark" />
 </head>
 
 <body class="wt-body">
 
   {%- comment -%}
-    LANGUAGE DETECTION (robusta):
-    - Usa page.lang se presente
-    - Altrimenti controlla il path SENZA baseurl per '/en/'
-    - Calcola gli URL IT/EN in base al path neutro
+  LANGUAGE DETECTION:
+  - Prioritize page.lang
+  - Fallback: check if URL starts with /en/
   {%- endcomment -%}
 
   {%- assign is_en = false -%}
-
   {%- if page.lang == 'en' -%}
-    {%- assign is_en = true -%}
+  {%- assign is_en = true -%}
   {%- else -%}
-    {%- assign base = site.baseurl | default: '' -%}
-    {%- assign path = page.url | default: '/' -%}
-    {%- assign path_no_base = path | remove_first: base -%}
-    {%- if path_no_base contains '/en/' or path_no_base == '/en' or path_no_base == '/en/' -%}
-      {%- assign is_en = true -%}
-    {%- endif -%}
+  {%- if page.url contains '/en/' -%}
+  {%- assign is_en = true -%}
+  {%- endif -%}
   {%- endif -%}
 
-  {%- assign base = site.baseurl | default: '' -%}
-  {%- assign current_path = page.url | default: '/' | remove_first: base -%}
+  {%- comment -%}
+  Simple i18n mapping for common pages if they don't follow exact path matching
+  {%- endcomment -%}
+  {%- assign current_path = page.url | default: '/' -%}
 
   {%- if is_en -%}
-    {%- assign url_it = current_path | remove_first: '/en' -%}
-    {%- assign url_en = current_path -%}
+  {%- assign url_en = current_path -%}
+  {%- if current_path == '/en/' -%}
+  {%- assign url_it = '/' -%}
+  {%- elsif current_path contains '/en/services/' -%}
+  {%- assign url_it = '/servizi/' -%}
+  {%- elsif current_path contains '/en/projects/' -%}
+  {%- assign url_it = '/progetti/' -%}
+  {%- elsif current_path contains '/en/contact/' -%}
+  {%- assign url_it = '/contatti/' -%}
   {%- else -%}
-    {%- assign url_it = current_path -%}
-    {%- assign url_en = '/en' | append: current_path -%}
+  {%- assign url_it = current_path | replace: '/en/', '/' -%}
+  {%- endif -%}
+  {%- else -%}
+  {%- assign url_it = current_path -%}
+  {%- if current_path == '/' -%}
+  {%- assign url_en = '/en/' -%}
+  {%- elsif current_path contains '/servizi/' -%}
+  {%- assign url_en = '/en/services/' -%}
+  {%- elsif current_path contains '/progetti/' -%}
+  {%- assign url_en = '/en/projects/' -%}
+  {%- elsif current_path contains '/contatti/' -%}
+  {%- assign url_en = '/en/contact/' -%}
+  {%- else -%}
+  {%- assign url_en = '/en' | append: current_path -%}
+  {%- endif -%}
   {%- endif -%}
 
-  {%- assign en_enabled = site.data.i18n.en_enabled | default: false -%}
+  {%- assign en_enabled = site.data.i18n.en_enabled | default: true -%}
 
   <!-- HEADER -->
   <header class="wt-header">
@@ -51,74 +69,77 @@
 
       <!-- BRAND -->
       <div class="wt-brand">
-        {{ 
+        <a href="{{ '/' | relative_url }}" class="wt-brand-link">
           {% if site.brand.logo %}
-            {{ site.brand.logo | relative_url }}
+          <img src="{{ site.brand.logo | relative_url }}" alt="Logo" class="wt-logo">
           {% endif %}
           <span class="wt-brand-text">{{ site.brand.name }}</span>
         </a>
       </div>
 
-      <!-- LANGUAGE SWITCHER -->
-      <div class="wt-lang">
-        {{ url_it | relative_url }}IT</a>
-        <span class="wt-lang-sep">|</span>
-        {% if en_enabled %}
-          <a class="wt-lang-item {% if is_en %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
-        {% else %}
-          <span class="wt-lang-item wt-disabled">EN</span>
-        {% endif %}
-      </div>
-
-      <!-- BURGER -->
-      <button class="wt-burger" onclick="WT.toggleSidebar()">☰</button>
-
-      <!-- NAV DESKTOP -->
-      {% if is_en and site.nav_en %}
-        {% assign nav_items = site.nav_en %}
+      <!-- NAV DESKTOP (TABS STYLE) -->
+      {% if is_en %}
+      {% assign nav_items = site.nav_en %}
       {% else %}
-        {% assign nav_items = site.nav %}
+      {% assign nav_items = site.nav %}
       {% endif %}
 
-      <nav class="wt-menu">
+      <nav class="wt-menu" role="tablist">
         {% for item in nav_items %}
-          <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
+        <a href="{{ item.url | relative_url }}" class="wt-nav-item {% if page.url == item.url %}active{% endif %}"
+          role="tab">
+          {{ item.name }}
+        </a>
         {% endfor %}
       </nav>
+
+      <!-- LANGUAGE SWITCHER & THEME -->
+      <div class="wt-actions">
+        <div class="wt-lang">
+          <a class="wt-lang-item {% unless is_en %}active{% endunless %}" href="{{ url_it | relative_url }}">IT</a>
+          <span class="wt-lang-sep">|</span>
+          {% if en_enabled %}
+          <a class="wt-lang-item {% if is_en %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
+          {% else %}
+          <span class="wt-lang-item wt-disabled">EN</span>
+          {% endif %}
+        </div>
+
+        <button class="wt-theme-toggle" onclick="WT.toggleTheme()" aria-label="Toggle Theme">
+          <span class="wt-theme-ico wt-sun">☀️</span>
+          <span class="wt-theme-ico wt-moon">🌙</span>
+        </button>
+
+        <button class="wt-burger" onclick="WT.toggleSidebar()" aria-label="Menu">☰</button>
+      </div>
 
     </div>
   </header>
 
   <!-- SIDEBAR MOBILE -->
   <aside id="wt-sidebar" class="wt-sidebar" aria-hidden="true">
-
     <div class="wt-sidebar-head">
       <strong>Menu</strong>
       <button onclick="WT.toggleSidebar()">×</button>
     </div>
 
-    <!-- NAV MOBILE -->
-    {% if is_en and site.nav_en %}
-      {% assign nav_items_sidebar = site.nav_en %}
-    {% else %}
-      {% assign nav_items_sidebar = site.nav %}
-    {% endif %}
-
     <nav class="wt-sidebar-links">
-      {% for item in nav_items_sidebar %}
-        <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
-     heme">
+      {% for item in nav_items %}
+      <a href="{{ item.url | relative_url }}" {% if page.url==item.url %}class="active" {% endif %}>{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="wt-sidebar-footer">
       <div class="wt-lang wt-lang-mobile">
-        {{ url_it | relative_url }}IT</a>
+        <a class="wt-lang-item {% unless is_en %}active{% endunless %}" href="{{ url_it | relative_url }}">IT</a>
         <span class="wt-lang-sep">|</span>
         {% if en_enabled %}
-          {{ url_en | relative_url }}EN</a>
+        <a class="wt-lang-item {% if is_en %}active{% endif %}" href="{{ url_en | relative_url }}">EN</a>
         {% else %}
-          <span class="wt-lang-item wt-disabled">EN</span>
+        <span class="wt-lang-item wt-disabled">EN</span>
         {% endif %}
       </div>
     </div>
-
   </aside>
 
   <!-- MAIN -->
@@ -129,7 +150,8 @@
   <!-- FOOTER -->
   <footer class="wt-footer">
     <div class="wt-container">
-      © {{ site.time | date: "%Y" }} {{ site.brand.name }} — Tutti i diritti riservati
+      <p>© {{ site.time | date: "%Y" }} {{ site.brand.name }} — {% if is_en %}All rights reserved{% else %}Tutti i
+        diritti riservati{% endif %}</p>
     </div>
   </footer>
 
@@ -139,4 +161,5 @@
   </script>
 
 </body>
+
 </html>
