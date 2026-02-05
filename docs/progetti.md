@@ -9,30 +9,45 @@ permalink: /progetti/
 
 Soluzioni reali per aziende, professionisti e team enterprise.
 
----
+<div class="wt-tabs-container">
+  <div class="wt-tabs-nav">
+    <button class="wt-tab-btn active" onclick="WT.switchTab('p-web', this)">App Web</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('p-ai', this)">Soluzioni AI</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('p-ent', this)">Enterprise</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('p-wp', this)">WordPress</button>
+  </div>
 
-## 🧩 Applicazioni Web Custom
-Sviluppo di app moderne integrate con sistemi esistenti, con stack performanti.
+  <div id="p-web" class="wt-tab-content active">
+    <h3>🧩 Applicazioni Web Custom</h3>
+    <p>Sviluppo di app moderne integrate con sistemi esistenti, con stack performanti come React e Next.js.</p>
+  </div>
 
----
+  <div id="p-ai" class="wt-tab-content">
+    <h3>🤖 Soluzioni AI</h3>
+    <ul>
+      <li>Chatbot evoluti per assistenza clienti</li>
+      <li>Automazioni intelligenti con OpenAI e RAG</li>
+      <li>Modelli predittivi custom</li>
+      <li>AI integrata su dati aziendali</li>
+    </ul>
+  </div>
 
-## 🤖 Soluzioni AI
-- Chatbot evoluti per assistenza clienti
-- Automazioni intelligenti
-- Modelli predittivi
-- AI su dati aziendali
+  <div id="p-ent" class="wt-tab-content">
+    <h3>☁️ Integrazioni Enterprise</h3>
+    <ul>
+      <li>Soluzioni SPFx per SharePoint Online</li>
+      <li>Dashboard operative su Microsoft Azure</li>
+      <li>Intranet aziendali evolute</li>
+      <li>Workflows digitali con Power Automate & Graph API</li>
+    </ul>
+  </div>
 
----
-
-## ☁️ Integrazioni Enterprise
-- SPFx per SharePoint Online
-- Dashboard operative
-- Intranet evolute
-- Workflows digitali
-
----
-
-## 🌐 WordPress Pro
-- Siti business ad alte prestazioni
-- Temi e plugin personalizzati
-- API headless per app esterne
+  <div id="p-wp" class="wt-tab-content">
+    <h3>🌐 WordPress Pro</h3>
+    <ul>
+      <li>Siti business ad alte prestazioni</li>
+      <li>Temi e plugin personalizzati (ACF/CPT)</li>
+      <li>API headless per applicazioni mobili o esterne</li>
+    </ul>
+  </div>
+</div>

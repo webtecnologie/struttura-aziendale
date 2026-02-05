@@ -9,42 +9,62 @@ permalink: /servizi/
 
 Trasformiamo idee in soluzioni digitali performanti, scalabili e integrate.
 
----
+<div class="wt-tabs-container">
+  <div class="wt-tabs-nav">
+    <button class="wt-tab-btn active" onclick="WT.switchTab('sites', this)">Siti & App</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('api', this)">Backend & API</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('ai-serv', this)">AI & Automation</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('enterprise', this)">Enterprise</button>
+    <button class="wt-tab-btn" onclick="WT.switchTab('wp-adv', this)">WordPress</button>
+  </div>
 
-## 🌐 Siti Web & Applicazioni
-- Sviluppo moderno con **React / Next.js**
-- UI/UX professionale
-- Layout responsive e accessibile
-- CMS headless o tradizionale
+  <div id="sites" class="wt-tab-content active">
+    <h3>🌐 Siti Web & Applicazioni</h3>
+    <ul>
+      <li>Sviluppo moderno con <strong>React / Next.js</strong></li>
+      <li>UI/UX professionale</li>
+      <li>Layout responsive e accessibile</li>
+      <li>CMS headless o tradizionale</li>
+    </ul>
+  </div>
 
----
+  <div id="api" class="wt-tab-content">
+    <h3>⚙️ Backend & API</h3>
+    <ul>
+      <li>Architetture scalabili</li>
+      <li>Microservizi Docker</li>
+      <li>API REST/GraphQL</li>
+      <li>Sicurezza, logging, autenticazione</li>
+    </ul>
+  </div>
 
-## ⚙️ Backend & API
-- Architetture scalabili
-- Microservizi Docker
-- API REST/GraphQL
-- Sicurezza, logging, autenticazione
+  <div id="ai-serv" class="wt-tab-content">
+    <h3>🤖 AI & Automazione</h3>
+    <ul>
+      <li>Chatbot intelligenti</li>
+      <li>Assistenti AI aziendali</li>
+      <li>Automazioni operative</li>
+      <li>Analisi e predizione con ML</li>
+    </ul>
+  </div>
 
----
+  <div id="enterprise" class="wt-tab-content">
+    <h3>☁️ Cloud & Enterprise</h3>
+    <ul>
+      <li>Microsoft 365 & SharePoint Online</li>
+      <li>App SPFx personalizzate</li>
+      <li>Automazioni Azure</li>
+      <li>Integrazioni Graph API</li>
+    </ul>
+  </div>
 
-## 🤖 AI & Automazione
-- Chatbot intelligenti
-- Assistenti AI aziendali
-- Automazioni operative
-- Analisi e predizione con ML
-
----
-
-## ☁️ Cloud & Enterprise
-- Microsoft 365 & SharePoint Online
-- App SPFx personalizzate
-- Automazioni Azure
-- Integrazioni Graph API
-
----
-
-## 🧰 WordPress Avanzato
-- Temi custom professionali
-- Funzionalità avanzate con ACF/CPT
-- API headless per app esterne
-- Ottimizzazione SEO & prestazioni
+  <div id="wp-adv" class="wt-tab-content">
+    <h3>🧰 WordPress Avanzato</h3>
+    <ul>
+      <li>Temi custom professionali</li>
+      <li>Funzionalità avanzate con ACF/CPT</li>
+      <li>API headless per app esterne</li>
+      <li>Ottimizzazione SEO & prestazioni</li>
+    </ul>
+  </div>
+</div>
