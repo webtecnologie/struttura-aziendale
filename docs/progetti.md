@@ -7,26 +7,32 @@ permalink: /progetti/
 
 # Progetti
 
-Una selezione dei principali progetti, soluzioni e implementazioni realizzate.
+Soluzioni reali per aziende, professionisti e team enterprise.
 
-## 🧩 Applicazioni Custom
-Soluzioni web su misura basate su stack moderni, progettate per scalare e integrarsi con sistemi esistenti.
+---
 
-## 🤖 AI & Automazione
-Integrazioni AI per:
-- Assistenza clienti
-- Chatbot intelligenti
-- Workflow automatizzati
-- Analisi e predizione
+## 🧩 Applicazioni Web Custom
+Sviluppo di app moderne integrate con sistemi esistenti, con stack performanti.
 
-## 🏢 Enterprise & Cloud
-Implementazioni per:
-- Microsoft 365
-- SharePoint Online (SPFx)
-- Azure Functions & Automation
+---
+
+## 🤖 Soluzioni AI
+- Chatbot evoluti per assistenza clienti
+- Automazioni intelligenti
+- Modelli predittivi
+- AI su dati aziendali
+
+---
+
+## ☁️ Integrazioni Enterprise
+- SPFx per SharePoint Online
+- Dashboard operative
+- Intranet evolute
+- Workflows digitali
+
+---
 
 ## 🌐 WordPress Pro
-Realizzazione di siti professionali:
-- Temi custom
-- API e integrazioni headless
-- Ottimizzazioni avanzate
+- Siti business ad alte prestazioni
+- Temi e plugin personalizzati
+- API headless per app esterne
