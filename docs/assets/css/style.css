@@ -15,22 +15,28 @@
     --bg: #03060a;
     --bg-secondary: #0a0f16;
     --bg-panel: #0d121b;
+    --nav-bg: rgba(3, 6, 10, 0.85);
     --text-primary: #ffffff;
     --text-secondary: #94a3b8;
     --accent: #3b82f6;
+    --brand-primary: #3b82f6;
     --border: rgba(255, 255, 255, 0.08);
     --glow: rgba(59, 130, 246, 0.15);
+    --neon-glow: 0 0 15px rgba(31, 111, 235, 0.4);
 }
 
 .theme-light {
     --bg: #f8fafc;
     --bg-secondary: #ffffff;
     --bg-panel: #f1f5f9;
+    --nav-bg: rgba(255, 255, 255, 0.95);
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --accent: #2563eb;
+    --brand-primary: #2563eb;
     --border: rgba(0, 0, 0, 0.08);
     --glow: rgba(37, 99, 235, 0.1);
+    --neon-glow: 0 0 15px rgba(37, 99, 235, 0.2);
 }
 
 /* BASE */
@@ -48,6 +54,16 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: var(--brand-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
 .wt-container {
     max-width: var(--container-max);
     margin: 0 auto;
@@ -62,9 +78,21 @@ body {
     height: 72px;
     display: flex;
     align-items: center;
-    background: rgba(var(--bg), 0.7);
+    background: var(--nav-bg);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+}
+
+.wt-nav-menu a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.wt-nav-menu a.active {
+    color: var(--text-primary);
+    background: var(--glow);
 }
 
 /* HERO CLAVION STYLE */
