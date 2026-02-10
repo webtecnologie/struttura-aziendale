@@ -20,6 +20,12 @@ Soluzioni reali per aziende, professionisti e team enterprise.
   <div id="p-web" class="wt-tab-content active">
     <h3>🧩 Applicazioni Web Custom</h3>
     <p>Sviluppo di app moderne integrate con sistemi esistenti, con stack performanti come React e Next.js.</p>
+    <ul>
+      <li>
+        <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank"><strong>Web Part "Struttura Aziendale"</strong></a>
+        <br><small>Visualizzatore di organigrammi aziendali per SharePoint Online con integrazione Microsoft Graph.</small>
+      </li>
+    </ul>
   </div>
 
   <div id="p-ai" class="wt-tab-content">
