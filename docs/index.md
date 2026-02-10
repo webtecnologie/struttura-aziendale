@@ -1,102 +1,95 @@
 ---
 layout: default
 title: Home
-description: Soluzioni AI per aziende moderne. Esperti in innovazione digitale, sviluppo Web e automazione AI.
+description: Soluzioni AI per aziende moderne. Esperti in innovazione digitale e Web development.
 lang: it
 permalink: /
 ---
 
 <div class="wt-container">
   
-  <!-- HERO SECTION -->
-  <section class="hero-v fade-in">
-    <div class="sopratitolo">Soluzioni AI per aziende moderne</div>
+  <!-- HERO -->
+  <header class="c-hero c-fade-up">
     <h1>Costruiamo il futuro digitale della tua azienda</h1>
-    <p class="subtitle">Trasformiamo le tue idee in soluzioni tecnologiche performanti. Dall'intelligenza artificiale generativa allo sviluppo cloud su misura.</p>
-    
-    <div class="hero-cta-group fade-in delay-1">
-      <a href="/struttura-aziendale/contatti/" class="btn-pill-primary">
-        <span>Inizia ora</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="/struttura-aziendale/servizi/" class="btn-pill-secondary">
-        <span>I nostri servizi</span>
-      </a>
+    <p>Trasformiamo le tue idee in soluzioni tecnologiche performanti. Dall'intelligenza artificiale generativa allo sviluppo cloud su misura.</p>
+    <div class="hero-cta-group">
+      <a href="/struttura-aziendale/contatti/" class="c-btn-primary">Inizia ora</a>
+      <a href="/struttura-aziendale/servizi/" class="c-btn-secondary">Scopri i servizi</a>
     </div>
-  </section>
+  </header>
 
-  <!-- VISUAL + GRID SECTION -->
-  <section class="visual-container slide-up delay-1">
-    <div class="visual-3d">
-      <div style="font-size: 8rem; font-weight: 200; opacity: 0.1; letter-spacing: -0.1em;">AI AGENCY</div>
-      <!-- Placeholder for premium 3D graphics mentioned in instructions -->
-      <div style="position: absolute; width: 300px; height: 300px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0.2;"></div>
-      <div style="position: absolute; width: 200px; height: 200px; border: 1px solid var(--text-secondary); border-radius: 50%; opacity: 0.1; transform: rotate(45deg);"></div>
-    </div>
-    
-    <div class="visual-grid">
-      <div class="panel-small">
-        <h4 style="margin-bottom: 8px;">Looks easy. Breaks under pressure</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Evita soluzioni generiche che non scalano. La stabilità è fondamentale.</p>
+  <!-- PANNELLI 2 COLONNE -->
+  <section id="services" class="c-fade-up" style="animation-delay: 0.1s;">
+    <div class="c-grid-2">
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Sviluppo Web</span>
+          <h2>Frontend Moderno</h2>
+          <p>Creiamo interfacce fluide con React e Next.js, ottimizzate per performance e SEO di livello enterprise.</p>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--accent); margin-top: 20px;">+45% caricamento veloce</div>
       </div>
-      <div class="panel-small">
-        <h4 style="margin-bottom: 8px;">Engineered, observable, safe</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Sistemi monitorati e sicuri, progettati per durare nel tempo.</p>
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Intelligenza Artificiale</span>
+          <h2>AI & Automazione</h2>
+          <p>Integrazione di modelli linguistici avanzati per trasformare la tua base di conoscenza in assistenti intelligenti.</p>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--accent); margin-top: 20px;">-60% task manuali</div>
       </div>
     </div>
   </section>
 
-  <!-- TABS SECTION -->
-  <div class="tabs-centered slide-up delay-2">
-    <a href="/struttura-aziendale/servizi/" class="tab-pill active">
-      <span>✨</span> Servizi
-    </a>
-    <a href="#" class="tab-pill">
-      <span>⚙️</span> Processi
-    </a>
-    <a href="/struttura-aziendale/progetti/" class="tab-pill">
-      <span>📂</span> Case Studies
-    </a>
-    <a href="#" class="tab-pill">
-      <span>🏷️</span> Prezzi
-    </a>
-    <a href="#" class="tab-pill">
-      <span>✍️</span> Blog
-    </a>
-    <a href="/struttura-aziendale/contatti/" class="tab-pill">
-      <span>✉️</span> Contatti
-    </a>
+  <!-- RADIAL ICONS -->
+  <section class="c-radial c-fade-up" style="animation-delay: 0.2s;">
+    <div class="c-radial-center">⚡</div>
+    <div class="c-radial-icon" style="transform: translate(-100px, -40px);">🌐</div>
+    <div class="c-radial-icon" style="transform: translate(100px, -40px);">🛡️</div>
+    <div class="c-radial-icon" style="transform: translate(-60px, -90px);">🤖</div>
+    <div class="c-radial-icon" style="transform: translate(60px, -90px);">📊</div>
+  </section>
+
+  <!-- CASE STUDY SECTION -->
+  <section id="projects" class="c-fade-up" style="animation-delay: 0.3s; margin: 80px 0;">
+    <div class="c-case-study">
+      <div class="c-case-img">
+        <div style="font-size: 4rem; opacity: 0.2; font-weight: 800;">WT CHART</div>
+      </div>
+      <div class="c-case-content">
+        <span class="c-badge">Featured Project</span>
+        <h2>Web Part Organigramma</h2>
+        <p>Soluzione enterprise per SharePoint Online che visualizza dinamicamente la struttura aziendale tramite Microsoft Graph API.</p>
+        <a href="/struttura-aziendale/progetti/" class="c-btn-secondary" style="margin-top: 24px;">Vedi Dettagli</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANNELLI FOOTER-LIKE -->
+  <section id="contact" class="c-fade-up" style="animation-delay: 0.4s; margin-bottom: 120px;">
+    <div class="c-grid-2">
+      <div class="c-panel" style="text-align: center; align-items: center;">
+        <h2>Pronto a partire?</h2>
+        <p>Iniziamo a costruire insieme la tua prossima innovazione.</p>
+        <a href="/struttura-aziendale/contatti/" class="c-btn-primary" style="margin-top: 24px;">Contattaci</a>
+      </div>
+      <div class="c-panel" style="text-align: center; align-items: center;">
+        <h2>Hai domande?</h2>
+        <p>Siamo qui per aiutarti a scegliere la tecnologia migliore.</p>
+        <a href="mailto:info@webtecnologie.it" class="c-btn-secondary" style="margin-top: 24px;">Scrivici</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING TABS -->
+  <div class="c-tabs-wrap">
+    <nav class="c-tabs">
+      <a href="/struttura-aziendale/servizi/" class="c-tab">Servizi</a>
+      <a href="#services" class="c-tab">Processi</a>
+      <a href="/struttura-aziendale/progetti/" class="c-tab">Case Studies</a>
+      <a href="#" class="c-tab">Prezzi</a>
+      <a href="#" class="c-tab">Blog</a>
+      <a href="/struttura-aziendale/contatti/" class="c-tab">Contatti</a>
+    </nav>
   </div>
-
-  <hr class="sep">
-
-  <!-- PILLARS SECTIONS -->
-  <section class="pillar-v slide-up delay-2">
-    <div class="icon">🌐</div>
-    <h2>Sviluppo Web Moderno</h2>
-    <p>Applicazioni veloci e SEO-optimized realizzate con React e Next.js per un'esperienza utente senza compromessi. Architetture scalabili che crescono con il tuo business.</p>
-  </section>
-
-  <section class="pillar-v slide-up delay-3">
-    <div class="icon">🤖</div>
-    <h2>AI & Automazione</h2>
-    <p>Integrazione di modelli linguistici avanzati (LLM) e sistemi di automazione intelligente per ottimizzare i processi aziendali e ridurre il carico operativo manuale.</p>
-  </section>
-
-  <section class="pillar-v slide-up delay-3">
-    <div class="icon">☁️</div>
-    <h2>Cloud & Enterprise</h2>
-    <p>Soluzioni integrate per SharePoint Online, Azure e Microsoft 365. Sviluppo di Web Part SPFx personalizzate e integrazioni profonde tramite Microsoft Graph API.</p>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta-v slide-up delay-3">
-    <h2>Pronto a trasformare il tuo business?</h2>
-    <p class="small-sub">Contattaci oggi per una consulenza gratuita dei nostri esperti</p>
-    <a href="/struttura-aziendale/contatti/" class="btn-pill-primary">
-      <span>Inizia il progetto</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </section>
 
 </div>

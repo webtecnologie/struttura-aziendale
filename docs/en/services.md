@@ -8,49 +8,62 @@ permalink: /en/services/
 
 <div class="wt-container">
   
-  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
-    <div class="sopratitolo">Technological Excellence</div>
+  <header class="c-hero c-fade-up">
     <h1>Our Services</h1>
-    <p class="subtitle">Solutions engineered for the AI era, built with extreme technical precision.</p>
+    <p>Solutions engineered for the AI era, built with extreme technical precision.</p>
+  </header>
+
+  <section class="c-fade-up">
+    <div class="c-grid-2">
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Web Development</span>
+          <h2>Frontend Development</h2>
+          <p>We craft fluid interfaces with React, Next.js, and TypeScript. Core Web Vitals and enterprise SEO optimization.</p>
+        </div>
+      </div>
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">AI Integration</span>
+          <h2>AI & Machine Learning</h2>
+          <p>Implementing virtual assistants and RAG models based on OpenAI to manage corporate knowledge.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-grid-2">
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Enterprise</span>
+          <h2>Microsoft 365 & SPFx</h2>
+          <p>Development of complex Web Parts for SharePoint Online and deep integrations via Microsoft Graph API.</p>
+        </div>
+      </div>
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Back-end</span>
+          <h2>API & Scalable Cloud</h2>
+          <p>Designing secure serverless architectures and APIs in Node.js and Python on Azure/AWS.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="wt-section">
-    <!-- BLOCK 1 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🌐</div>
-      <h2>Frontend Web Development</h2>
-      <p>We craft fluid and reactive interfaces using React, Next.js, and TypeScript. Every pixel is optimized for performance and SEO, ensuring an enterprise-grade user experience.</p>
+  <section class="c-fade-up" style="margin: 80px 0 120px; text-align: center;">
+    <div class="c-panel">
+      <h2>Have specific requirements?</h2>
+      <p>We build bespoke solutions tailored to your business processes.</p>
+      <a href="/struttura-aziendale/en/contact/" class="c-btn-primary" style="margin-top: 24px;">Contact Us</a>
     </div>
+  </section>
 
-    <!-- BLOCK 2 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🤖</div>
-      <h2>AI & Machine Learning</h2>
-      <p>We build solutions based on advanced language models and RAG. We help companies leverage their knowledge base through secure and intelligent AI assistants.</p>
-    </div>
-
-    <!-- BLOCK 3 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🏢</div>
-      <h2>Microsoft 365 Solutions</h2>
-      <p>Customizing your SharePoint environment with complex SPFx Web Parts and deep integrations through Microsoft Graph API to maximize internal productivity.</p>
-    </div>
-
-    <!-- BLOCK 4 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">⚙️</div>
-      <h2>Backend & Cloud</h2>
-      <p>Robust serverless architectures and APIs designed in Node.js and Python. Guaranteed scalability via Azure and AWS infrastructures managed with high security standards.</p>
-    </div>
+  <div class="c-tabs-wrap">
+    <nav class="c-tabs">
+      <a href="/struttura-aziendale/en/" class="c-tab">Home</a>
+      <a href="/struttura-aziendale/en/services/" class="c-tab active">Services</a>
+      <a href="/struttura-aziendale/en/projects/" class="c-tab">Case Studies</a>
+      <a href="/struttura-aziendale/en/contact/" class="c-tab">Contact</a>
+    </nav>
   </div>
-
-  <section class="final-cta-v slide-up">
-    <h2>Have an ambitious project?</h2>
-    <p class="small-sub">Let's bring your vision to life with the best available technologies</p>
-    <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
-      <span>Get a free quote</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </section>
 
 </div>

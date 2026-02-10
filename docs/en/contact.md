@@ -8,35 +8,49 @@ permalink: /en/contact/
 
 <div class="wt-container">
   
-  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
-    <div class="sopratitolo">Let's Connect</div>
-    <h1>Start Your Digital Journey</h1>
-    <p class="subtitle">We're ready to hear your needs and transform them into a winning technological strategy.</p>
+  <header class="c-hero c-fade-up">
+    <h1>Start Your Journey</h1>
+    <p>We're ready to hear your needs and transform them into a winning technological strategy.</p>
+  </header>
+
+  <section class="c-fade-up">
+    <div class="c-grid-2">
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Email</span>
+          <h2>Talk to our experts</h2>
+          <p>Email us with your project details. We typically respond within 24 business hours.</p>
+          <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 500; color: var(--accent); display: block; margin-top: 16px;">info@webtecnologie.it</a>
+        </div>
+      </div>
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Social</span>
+          <h2>Our Channels</h2>
+          <p>Follow us on GitHub and visit our corporate site for more updates.</p>
+          <div style="margin-top: 24px; display: flex; gap: 20px;">
+            <a href="https://github.com/webtecnologie" target="_blank" class="c-btn-secondary">GitHub</a>
+            <a href="https://webtecnologie.it" target="_blank" class="c-btn-secondary">Corporate</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <div class="wt-section">
-    <!-- CONTACT 1 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">📧</div>
-      <h2>Talk to our experts</h2>
-      <p>Send us an email with your project details. We typically respond within 24 business hours to schedule a free initial kickoff meeting.</p>
-      <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">info@webtecnologie.it</a>
+  <section class="c-fade-up" style="margin: 80px 0 120px; text-align: center;">
+    <div class="c-panel">
+      <h2>Why choose us?</h2>
+      <p>Strategic consulting, dedicated support, and total transparency.</p>
     </div>
+  </section>
 
-    <!-- CONTACT 2 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🤝</div>
-      <h2>Partnership & Consulting</h2>
-      <p>Looking for a long-term collaboration or specialist consulting on AI and Cloud? We support your team throughout every phase of digital transformation.</p>
-    </div>
+  <div class="c-tabs-wrap">
+    <nav class="c-tabs">
+      <a href="/struttura-aziendale/en/" class="c-tab">Home</a>
+      <a href="/struttura-aziendale/en/services/" class="c-tab">Services</a>
+      <a href="/struttura-aziendale/en/projects/" class="c-tab">Case Studies</a>
+      <a href="/struttura-aziendale/en/contact/" class="c-tab active">Contact</a>
+    </nav>
   </div>
-
-  <section class="final-cta-v slide-up">
-    <h3>Follow our official channels</h3>
-    <div style="margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-      <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link" style="font-size: 1rem;">GitHub Profile</a>
-      <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link" style="font-size: 1rem;">Corporate Website</a>
-    </div>
-  </section>
 
 </div>

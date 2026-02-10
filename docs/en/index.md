@@ -1,103 +1,95 @@
 ---
 layout: default
 title: Home
-description: AI solutions for modern businesses. Experts in digital innovation, Web development, and AI automation.
+description: AI solutions for modern businesses. Experts in digital innovation and Web development.
 lang: en
 permalink: /en/
 ---
 
 <div class="wt-container">
   
-  <!-- HERO SECTION -->
-  <section class="hero-v fade-in">
-    <div class="sopratitolo">AI Solutions for Modern Businesses</div>
+  <!-- HERO -->
+  <header class="c-hero c-fade-up">
     <h1>Building your company's digital future</h1>
-    <p class="subtitle">Turning your ideas into high-performance technological solutions. From generative AI to bespoke cloud development.</p>
-    
-    <div class="hero-cta-group fade-in delay-1">
-      <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
-        <span>Get Started</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="/struttura-aziendale/en/services/" class="btn-pill-secondary">
-        <span>Our Services</span>
-      </a>
+    <p>We transform your ideas into high-performance technological solutions. From generative AI to bespoke cloud development.</p>
+    <div class="hero-cta-group">
+      <a href="/struttura-aziendale/en/contact/" class="c-btn-primary">Start now</a>
+      <a href="/struttura-aziendale/en/services/" class="c-btn-secondary">Explore services</a>
     </div>
-  </section>
+  </header>
 
-  <!-- VISUAL + GRID SECTION -->
-  <section class="visual-container slide-up delay-1" id="process">
-    <div class="visual-3d">
-      <div style="font-size: 8rem; font-weight: 200; opacity: 0.1; letter-spacing: -0.1em;">AI AGENCY</div>
-      <div style="position: absolute; width: 300px; height: 300px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0.2;"></div>
-      <div style="position: absolute; width: 200px; height: 200px; border: 1px solid var(--text-secondary); border-radius: 50%; opacity: 0.1; transform: rotate(45deg);"></div>
-    </div>
-    
-    <div class="visual-grid">
-      <div class="panel-small">
-        <h4 style="margin-bottom: 8px;">Looks easy. Breaks under pressure</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Avoid generic solutions that don't scale. Stability is fundamental.</p>
+  <!-- PANELS 2 COLUMNS -->
+  <section id="services" class="c-fade-up" style="animation-delay: 0.1s;">
+    <div class="c-grid-2">
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Web Development</span>
+          <h2>Modern Frontend</h2>
+          <p>We craft fluid interfaces with React and Next.js, optimized for enterprise-grade performance and SEO.</p>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--accent); margin-top: 20px;">+45% faster loading</div>
       </div>
-      <div class="panel-small">
-        <h4 style="margin-bottom: 8px;">Engineered, observable, safe</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Monitored and secure systems, designed to stand the test of time.</p>
+      <div class="c-panel">
+        <div>
+          <span class="c-badge">Artificial Intelligence</span>
+          <h2>AI & Automation</h2>
+          <p>Integrating advanced language models to transform your knowledge base into intelligent assistants.</p>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--accent); margin-top: 20px;">-60% manual tasks</div>
       </div>
     </div>
   </section>
 
-  <!-- TABS SECTION -->
-  <div class="tabs-centered slide-up delay-2">
-    <a href="/struttura-aziendale/en/services/" class="tab-pill active">
-      <span>✨</span> Services
-    </a>
-    <a href="#process" class="tab-pill">
-      <span>⚙️</span> Process
-    </a>
-    <a href="/struttura-aziendale/en/projects/" class="tab-pill">
-      <span>📂</span> Case Studies
-    </a>
-    <a href="#" class="tab-pill">
-      <span>🏷️</span> Pricing
-    </a>
-    <a href="#" class="tab-pill">
-      <span>✍️</span> Blog
-    </a>
-    <a href="/struttura-aziendale/en/contact/" class="tab-pill">
-      <span>✉️</span> Contact
-    </a>
+  <!-- RADIAL ICONS -->
+  <section class="c-radial c-fade-up" style="animation-delay: 0.2s;">
+    <div class="c-radial-center">⚡</div>
+    <div class="c-radial-icon" style="transform: translate(-100px, -40px);">🌐</div>
+    <div class="c-radial-icon" style="transform: translate(100px, -40px);">🛡️</div>
+    <div class="c-radial-icon" style="transform: translate(-60px, -90px);">🤖</div>
+    <div class="c-radial-icon" style="transform: translate(60px, -90px);">📊</div>
+  </section>
+
+  <!-- CASE STUDY SECTION -->
+  <section id="projects" class="c-fade-up" style="animation-delay: 0.3s; margin: 80px 0;">
+    <div class="c-case-study">
+      <div class="c-case-img">
+        <div style="font-size: 4rem; opacity: 0.2; font-weight: 800;">WT CHART</div>
+      </div>
+      <div class="c-case-content">
+        <span class="c-badge">Featured Project</span>
+        <h2>Org Chart Web Part</h2>
+        <p>Enterprise solution for SharePoint Online that dynamically visualizes corporate structure via Microsoft Graph API.</p>
+        <a href="/struttura-aziendale/en/projects/" class="c-btn-secondary" style="margin-top: 24px;">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANELS FOOTER-LIKE -->
+  <section id="contact" class="c-fade-up" style="animation-delay: 0.4s; margin-bottom: 120px;">
+    <div class="c-grid-2">
+      <div class="c-panel" style="text-align: center; align-items: center;">
+        <h2>Ready to start?</h2>
+        <p>Let's build your next innovation together.</p>
+        <a href="/struttura-aziendale/en/contact/" class="c-btn-primary" style="margin-top: 24px;">Contact Us</a>
+      </div>
+      <div class="c-panel" style="text-align: center; align-items: center;">
+        <h2>Any questions?</h2>
+        <p>We are here to help you choose the best technology.</p>
+        <a href="mailto:info@webtecnologie.it" class="c-btn-secondary" style="margin-top: 24px;">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING TABS -->
+  <div class="c-tabs-wrap">
+    <nav class="c-tabs">
+      <a href="/struttura-aziendale/en/services/" class="c-tab">Services</a>
+      <a href="#services" class="c-tab">Process</a>
+      <a href="/struttura-aziendale/en/projects/" class="c-tab">Case Studies</a>
+      <a href="#" class="c-tab">Pricing</a>
+      <a href="#" class="c-tab">Blog</a>
+      <a href="/struttura-aziendale/en/contact/" class="c-tab">Contact</a>
+    </nav>
   </div>
-
-  <hr class="sep">
-
-  <!-- PILLARS SECTIONS -->
-  <section class="visual-container">
-    <div class="pillar-v slide-up">
-      <div class="icon">🌐</div>
-      <h2>Modern Web Development</h2>
-      <p>Fast and SEO-optimized applications built with React and Next.js for an uncompromising user experience. Scalable architectures that grow with your business.</p>
-    </div>
-
-    <div class="pillar-v slide-up">
-      <div class="icon">🤖</div>
-      <h2>AI & Automation</h2>
-      <p>Integration of advanced language models (LLM) and intelligent automation systems to optimize business processes and reduce manual operational overhead.</p>
-    </div>
-
-    <div class="pillar-v slide-up">
-      <div class="icon">☁️</div>
-      <h2>Cloud & Enterprise</h2>
-      <p>Integrated solutions for SharePoint Online, Azure, and Microsoft 365. Development of bespoke SPFx Web Parts and deep integrations via Microsoft Graph API.</p>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="final-cta-v slide-up">
-    <h2>Ready to transform your business?</h2>
-    <p class="small-sub">Contact us today for a free expert consultation</p>
-    <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
-      <span>Start Project</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </section>
 
 </div>

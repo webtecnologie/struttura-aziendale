@@ -8,48 +8,62 @@ permalink: /en/projects/
 
 <div class="wt-container">
   
-  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
-    <div class="sopratitolo">Case Studies</div>
+  <header class="c-hero c-fade-up">
     <h1>Project Portfolio</h1>
-    <p class="subtitle">An in-depth look at the technological challenges we've solved for our partners.</p>
-  </section>
+    <p>An in-depth look at the technological challenges we've solved for our partners.</p>
+  </header>
 
-  <div class="wt-section">
-    <!-- PROJECT 1 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🧩</div>
-      <h2>Corporate Structure Web Part</h2>
-      <p>A professional solution for SharePoint Online that dynamically visualizes the corporate org chart via Microsoft Graph API. Fully developed with SPFx and React.</p>
-      <div style="margin-top: 20px;">
-        <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank" class="btn-pill-secondary">
-          <span>View on GitHub</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
-        </a>
+  <section class="c-fade-up">
+    <div class="c-case-study" style="margin-bottom: 40px;">
+      <div class="c-case-img">
+        <div style="font-size: 3rem; opacity: 0.2; font-weight: 800;">SPFX CHART</div>
+      </div>
+      <div class="c-case-content">
+        <span class="c-badge">SharePoint</span>
+        <h2>Org Chart Web Part</h2>
+        <p>Enterprise solution that visualizes corporate org chart via Microsoft Graph API. Developed in React and SPFx.</p>
+        <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank" class="c-btn-secondary" style="margin-top: 24px;">GitHub Profile</a>
       </div>
     </div>
 
-    <!-- PROJECT 2 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">📊</div>
-      <h2>Azure Cloud Dashboard</h2>
-      <p>Real-time data monitoring platform for a multi-utility company. Utilizing Azure IoT Hub and Stream Analytics to visualize critical metrics on reactive dashboards.</p>
+    <div class="c-case-study" style="margin-bottom: 40px;">
+      <div class="c-case-img">
+        <div style="font-size: 3rem; opacity: 0.2; font-weight: 800;">AZURE DATA</div>
+      </div>
+      <div class="c-case-content">
+        <span class="c-badge">Cloud</span>
+        <h2>Analytics Dashboard</h2>
+        <p>Real-time data monitoring platform integrated with Azure IoT Hub for managing large volumes of data.</p>
+      </div>
     </div>
 
-    <!-- PROJECT 3 -->
-    <div class="pillar-v slide-up">
-      <div class="icon">🤖</div>
-      <h2>AI Knowledge-Base Assistant</h2>
-      <p>Integration of a RAG system for querying internal technical documentation. 40% reduction in research time thanks to generative AI.</p>
+    <div class="c-case-study">
+      <div class="c-case-img">
+        <div style="font-size: 3rem; opacity: 0.2; font-weight: 800;">AI SUPPORT</div>
+      </div>
+      <div class="c-case-content">
+        <span class="c-badge">AI</span>
+        <h2>Support Assistant</h2>
+        <p>Integration of AI models for customer support automation through internal knowledge base (RAG).</p>
+      </div>
     </div>
-  </div>
-
-  <section class="final-cta-v slide-up">
-    <h2>Want to see your project here?</h2>
-    <p class="small-sub">Let's start building something extraordinary together</p>
-    <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
-      <span>Talk about your vision</span>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
   </section>
+
+  <section class="c-fade-up" style="margin: 80px 0 120px; text-align: center;">
+    <div class="c-panel">
+      <h2>Looking to build something similar?</h2>
+      <p>Let's talk about your technological goals.</p>
+      <a href="/struttura-aziendale/en/contact/" class="c-btn-primary" style="margin-top: 24px;">Start Project</a>
+    </div>
+  </section>
+
+  <div class="c-tabs-wrap">
+    <nav class="c-tabs">
+      <a href="/struttura-aziendale/en/" class="c-tab">Home</a>
+      <a href="/struttura-aziendale/en/services/" class="c-tab">Services</a>
+      <a href="/struttura-aziendale/en/projects/" class="c-tab active">Case Studies</a>
+      <a href="/struttura-aziendale/en/contact/" class="c-tab">Contact</a>
+    </nav>
+  </div>
 
 </div>
