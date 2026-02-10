@@ -1,72 +1,103 @@
 ---
 layout: default
 title: Home
-description: Digital solutions for your business. Modern web development, AI integrations, and bespoke cloud technologies.
+description: AI solutions for modern businesses. Experts in digital innovation, Web development, and AI automation.
 lang: en
 permalink: /en/
 ---
 
 <div class="wt-container">
-  <!-- HORIZONTAL HERO -->
-  <header class="wt-hero fade-in">
-    <div class="wt-hero-content slide-up">
-      <h1>Bespoke Digital Innovation</h1>
-      <p>We transform your ideas into high-performance technological solutions. Guiding your business into the future with React, AI, and Cloud.</p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="/struttura-aziendale/en/services/" class="wt-btn-gradient">Explore Services</a>
-        <a href="/struttura-aziendale/en/contact/" class="wt-btn-secondary">Book a Consultation</a>
+  
+  <!-- HERO SECTION -->
+  <section class="hero-v fade-in">
+    <div class="sopratitolo">AI Solutions for Modern Businesses</div>
+    <h1>Building your company's digital future</h1>
+    <p class="subtitle">Turning your ideas into high-performance technological solutions. From generative AI to bespoke cloud development.</p>
+    
+    <div class="hero-cta-group fade-in delay-1">
+      <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
+        <span>Get Started</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/struttura-aziendale/en/services/" class="btn-pill-secondary">
+        <span>Our Services</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- VISUAL + GRID SECTION -->
+  <section class="visual-container slide-up delay-1" id="process">
+    <div class="visual-3d">
+      <div style="font-size: 8rem; font-weight: 200; opacity: 0.1; letter-spacing: -0.1em;">AI AGENCY</div>
+      <div style="position: absolute; width: 300px; height: 300px; border: 1px solid var(--accent); border-radius: 50%; opacity: 0.2;"></div>
+      <div style="position: absolute; width: 200px; height: 200px; border: 1px solid var(--text-secondary); border-radius: 50%; opacity: 0.1; transform: rotate(45deg);"></div>
+    </div>
+    
+    <div class="visual-grid">
+      <div class="panel-small">
+        <h4 style="margin-bottom: 8px;">Looks easy. Breaks under pressure</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Avoid generic solutions that don't scale. Stability is fundamental.</p>
+      </div>
+      <div class="panel-small">
+        <h4 style="margin-bottom: 8px;">Engineered, observable, safe</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Monitored and secure systems, designed to stand the test of time.</p>
       </div>
     </div>
-    <div class="wt-hero-visual slide-up delay-1">
-      <div style="font-size: 5rem; font-weight: 800; opacity: 0.2; letter-spacing: -0.05em;">WT</div>
-      <div style="position: absolute; bottom: 40px; right: 40px; width: 100px; height: 100px; background: var(--accent); opacity: 0.1; filter: blur(40px);"></div>
-    </div>
-  </header>
+  </section>
+
+  <!-- TABS SECTION -->
+  <div class="tabs-centered slide-up delay-2">
+    <a href="/struttura-aziendale/en/services/" class="tab-pill active">
+      <span>✨</span> Services
+    </a>
+    <a href="#process" class="tab-pill">
+      <span>⚙️</span> Process
+    </a>
+    <a href="/struttura-aziendale/en/projects/" class="tab-pill">
+      <span>📂</span> Case Studies
+    </a>
+    <a href="#" class="tab-pill">
+      <span>🏷️</span> Pricing
+    </a>
+    <a href="#" class="tab-pill">
+      <span>✍️</span> Blog
+    </a>
+    <a href="/struttura-aziendale/en/contact/" class="tab-pill">
+      <span>✉️</span> Contact
+    </a>
+  </div>
 
   <hr class="sep">
 
-  <!-- PILLARS SECTION -->
-  <div class="wt-section-header slide-up delay-2">
-    <h2>Our Pillars</h2>
-    <p>Solutions engineered for scalability and operational excellence.</p>
-  </div>
-
-  <div class="grid-12">
-    <div class="col-span-12 slide-up delay-2" style="margin-bottom: 24px;">
-      <div class="card-h">
-        <div class="card-icon-h">🌐</div>
-        <div class="card-body-h">
-          <h3>Modern Web Development</h3>
-          <p>Fast, SEO-optimized applications built with React and Next.js for a seamless user experience. Scalable architectures that grow with your business.</p>
-        </div>
-      </div>
+  <!-- PILLARS SECTIONS -->
+  <section class="visual-container">
+    <div class="pillar-v slide-up">
+      <div class="icon">🌐</div>
+      <h2>Modern Web Development</h2>
+      <p>Fast and SEO-optimized applications built with React and Next.js for an uncompromising user experience. Scalable architectures that grow with your business.</p>
     </div>
 
-    <div class="col-span-12 slide-up delay-3" style="margin-bottom: 24px;">
-      <div class="card-h">
-        <div class="card-icon-h">🤖</div>
-        <div class="card-body-h">
-          <h3>AI & Automation</h3>
-          <p>Integration of advanced language models (LLMs) and intelligent automation systems to streamline business processes and reduce manual operational load.</p>
-        </div>
-      </div>
+    <div class="pillar-v slide-up">
+      <div class="icon">🤖</div>
+      <h2>AI & Automation</h2>
+      <p>Integration of advanced language models (LLM) and intelligent automation systems to optimize business processes and reduce manual operational overhead.</p>
     </div>
 
-    <div class="col-span-12 slide-up delay-3">
-      <div class="card-h">
-        <div class="card-icon-h">☁️</div>
-        <div class="card-body-h">
-          <h3>Cloud & Enterprise</h3>
-          <p>Integrated solutions for SharePoint Online, Azure, and Microsoft 365. Bespoke SPFx Web Part development and deep integrations via Microsoft Graph API.</p>
-        </div>
-      </div>
+    <div class="pillar-v slide-up">
+      <div class="icon">☁️</div>
+      <h2>Cloud & Enterprise</h2>
+      <p>Integrated solutions for SharePoint Online, Azure, and Microsoft 365. Development of bespoke SPFx Web Parts and deep integrations via Microsoft Graph API.</p>
     </div>
-  </div>
+  </section>
 
-  <!-- FINAL CALL TO ACTION -->
-  <div class="final-cta slide-up delay-3">
+  <!-- FINAL CTA -->
+  <section class="final-cta-v slide-up">
     <h2>Ready to transform your business?</h2>
-    <p style="max-width: 600px; margin: 16px auto 32px;">Every great project starts with a conversation. Tell us your vision today.</p>
-    <a href="/struttura-aziendale/en/contact/" class="wt-btn-gradient">Get in Touch</a>
-  </div>
+    <p class="small-sub">Contact us today for a free expert consultation</p>
+    <a href="/struttura-aziendale/en/contact/" class="btn-pill-primary">
+      <span>Start Project</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
+
 </div>

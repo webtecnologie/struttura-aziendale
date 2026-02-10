@@ -1,66 +1,56 @@
 ---
 layout: default
 title: Servizi
-description: Esplora i nostri servizi digitali. Sviluppo web custom, backend scalabili, integrazioni AI avanzate e soluzioni enterprise Microsoft 365.
+description: Esplora i nostri servizi digitali premium. Sviluppo web avanzato, AI e soluzioni cloud.
 lang: it
 permalink: /servizi/
 ---
 
 <div class="wt-container">
-  <div class="wt-section-header fade-in">
+  
+  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
+    <div class="sopratitolo">Eccellenza Tecnologica</div>
     <h1>I Nostri Servizi</h1>
-    <p>Offriamo una gamma completa di competenze tecnologiche per accelerare il tuo business.</p>
-  </div>
+    <p class="subtitle">Soluzioni progettate per l'era dell'intelligenza artificiale, costruite con precisione ingegneristica.</p>
+  </section>
 
-  <div class="grid-12">
-    <!-- WEB -->
-    <div class="col-span-6 slide-up delay-1">
-      <div class="card-h" style="height: 100%;">
-        <div class="card-icon-h">🌐</div>
-        <div class="card-body-h">
-          <h3>Frontend Web Development</h3>
-          <p>Utilizziamo React, Next.js e TypeScript per creare interfacce fluide, veloci e accessibili. Massima attenzione ai Core Web Vitals e alla SEO.</p>
-        </div>
-      </div>
+  <div class="wt-section">
+    <!-- BLOCCO 1 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🌐</div>
+      <h2>Frontend Web Development</h2>
+      <p>Creiamo interfacce fluide e reattive utilizzando React, Next.js e TypeScript. Ogni pixel è ottimizzato per performance e SEO, garantendo un'esperienza utente di livello enterprise.</p>
     </div>
 
-    <!-- AI -->
-    <div class="col-span-6 slide-up delay-1">
-      <div class="card-h" style="height: 100%;">
-        <div class="card-icon-h">🤖</div>
-        <div class="card-body-h">
-          <h3>AI & Machine Learning</h3>
-          <p>Implementazione di assistenti virtuali intelligenti basati su OpenAI e modelli RAG (Retrieval-Augmented Generation) per gestire la conoscenza aziendale.</p>
-        </div>
-      </div>
+    <!-- BLOCCO 2 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🤖</div>
+      <h2>AI & Machine Learning</h2>
+      <p>Sviluppiamo soluzioni basate su modelli linguistici avanzati e RAG. Aiutiamo le aziende a sfruttare la propria base di conoscenza tramite assistenti AI sicuri e intelligenti.</p>
     </div>
 
-    <!-- ENTERPRISE -->
-    <div class="col-span-6 slide-up delay-2">
-      <div class="card-h" style="height: 100%;">
-        <div class="card-icon-h">🏢</div>
-        <div class="card-body-h">
-          <h3>Soluzioni Microsoft 365</h3>
-          <p>Sviluppo di Web Part complesse tramite SPFx, automazioni SharePoint con Power Automate e integrazioni tramite Microsoft Graph API.</p>
-        </div>
-      </div>
+    <!-- BLOCCO 3 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🏢</div>
+      <h2>Soluzioni Microsoft 365</h2>
+      <p>Personalizziamo il tuo ambiente SharePoint con Web Part SPFx complesse e integrazioni profonde tramite Microsoft Graph API per massimizzare la produttività interna.</p>
     </div>
 
-    <!-- BACKEND -->
-    <div class="col-span-6 slide-up delay-2">
-      <div class="card-h" style="height: 100%;">
-        <div class="card-icon-h">⚙️</div>
-        <div class="card-body-h">
-          <h3>Backend & API</h3>
-          <p>Progettazione di architetture server scalabili con Node.js e Python. Sviluppo di API REST e GraphQL sicure e performanti.</p>
-        </div>
-      </div>
+    <!-- BLOCCO 4 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">⚙️</div>
+      <h2>Backend & Cloud</h2>
+      <p>Architetture serverless e API robuste progettate in Node.js e Python. Scalabilità garantita tramite infrastrutture Azure e AWS gestite con i più alti standard di sicurezza.</p>
     </div>
   </div>
 
-  <div class="final-cta slide-up delay-3">
-    <h2>Hai esigenze specifiche?</h2>
-    <p style="max-width: 600px; margin: 16px auto 32px;">Realizziamo soluzioni su misura modellate sui tuoi processi aziendali.</p>
-    <a href="/struttura-aziendale/contatti/" class="wt-btn-gradient">Richiedi un Preventivo</a>
-  </div>
+  <section class="final-cta-v slide-up">
+    <h2>Hai un progetto ambizioso?</h2>
+    <p class="small-sub">Diamo vita alla tua visione con le migliori tecnologie esistenti</p>
+    <a href="/struttura-aziendale/contatti/" class="btn-pill-primary">
+      <span>Contattaci per un preventivo</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
+
 </div>

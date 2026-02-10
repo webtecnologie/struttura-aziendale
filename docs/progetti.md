@@ -1,56 +1,55 @@
 ---
 layout: default
 title: Progetti
-description: Una galleria dei nostri lavori digitali. Applicazioni web custom, soluzioni AI innovative e progetti enterprise SharePoint.
+description: Galleria dei nostri progetti digitali premium. Case studies su Web Part SPFx, AI e Cloud.
 lang: it
 permalink: /progetti/
 ---
 
 <div class="wt-container">
-  <div class="wt-section-header fade-in">
+  
+  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
+    <div class="sopratitolo">Case Studies</div>
     <h1>Portfolio Progetti</h1>
-    <p>Alcuni dei successi digitali realizzati per i nostri partner.</p>
-  </div>
+    <p class="subtitle">Uno sguardo ravvicinato alle sfide tecnologiche che abbiamo superato per i nostri partner.</p>
+  </section>
 
-  <div class="grid-12">
-    <!-- WEB PART -->
-    <div class="col-span-12 slide-up delay-1">
-      <div class="card-h">
-        <div class="card-icon-h">🧩</div>
-        <div class="card-body-h">
-          <h3>Web Part Struttura Aziendale</h3>
-          <p>Soluzione professionale per SharePoint Online che visualizza dinamicamente l'organigramma aziendale tramite Microsoft Graph API. Sviluppata interamente in SPFx con React e TypeScript.</p>
-          <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank" class="wt-nav-link" style="display:inline-block; margin-top:16px; font-weight:600;">Visualizza su GitHub →</a>
-        </div>
+  <div class="wt-section">
+    <!-- PROGETTO 1 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🧩</div>
+      <h2>Web Part Struttura Aziendale</h2>
+      <p>Una soluzione professionale per SharePoint Online che visualizza l'organigramma aziendale dinamicamente tramite Microsoft Graph API. Sviluppata interamente con SPFx e React.</p>
+      <div style="margin-top: 20px;">
+        <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank" class="btn-pill-secondary">
+          <span>Visualizza su GitHub</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
+        </a>
       </div>
     </div>
 
-    <!-- DASHBOARD -->
-    <div class="col-span-12 slide-up delay-2">
-      <div class="card-h">
-        <div class="card-icon-h">📊</div>
-        <div class="card-body-h">
-          <h3>Dashboard Analitica Cloud</h3>
-          <p>Piattaforma enterprise integrata con Azure per il monitoraggio dei dati in tempo reale. Ottimizzata per la visualizzazione di grandi volumi di informazioni con grafici interattivi.</p>
-        </div>
-      </div>
+    <!-- PROGETTO 2 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">📊</div>
+      <h2>Dashboard Cloud Azure</h2>
+      <p>Piattaforma di monitoraggio dati real-time per una multi-utility. Utilizza Azure IoT Hub e Stream Analytics per visualizzare metriche critiche su dashboard reattive.</p>
     </div>
 
-    <!-- AI -->
-    <div class="col-span-12 slide-up delay-3">
-      <div class="card-h">
-        <div class="card-icon-h">🤖</div>
-        <div class="card-body-h">
-          <h3>Assistente AI per Supporto</h3>
-          <p>Sistema di chatbot intelligente che automatizza la risoluzione dei ticket di primo livello analizzando la documentazione aziendale interna in tempo reale tramite RAG.</p>
-        </div>
-      </div>
+    <!-- PROGETTO 3 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🤖</div>
+      <h2>Assistente AI Knowledge-Base</h2>
+      <p>Integrazione di un sistema RAG per l'interrogazione della documentazione tecnica aziendale. Riduzione del 40% dei tempi di ricerca interna grazie all'AI generativa.</p>
     </div>
   </div>
 
-  <div class="final-cta slide-up delay-3">
-    <h2>Vuoi realizzare qualcosa di simile?</h2>
-    <p style="max-width: 600px; margin: 16px auto 32px;">Siamo pronti ad affrontare nuove sfide tecnologiche al tuo fianco.</p>
-    <a href="/struttura-aziendale/contatti/" class="wt-btn-gradient">Parliamo del Tuo Progetto</a>
-  </div>
+  <section class="final-cta-v slide-up">
+    <h2>Vuoi vedere il tuo progetto qui?</h2>
+    <p class="small-sub">Iniziamo a costruire qualcosa di straordinario insieme</p>
+    <a href="/struttura-aziendale/contatti/" class="btn-pill-primary">
+      <span>Parliamo della tua idea</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
+
 </div>

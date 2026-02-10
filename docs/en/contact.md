@@ -1,47 +1,42 @@
 ---
 layout: default
 title: Contact
-description: Have a project in mind? Contact us for a free consultation on web development, AI, and cloud solutions.
+description: Get in touch with our AI and Web experts. Request a premium consultation for your business.
 lang: en
 permalink: /en/contact/
 ---
 
 <div class="wt-container">
-  <div class="wt-section-header fade-in">
-    <h1>Start Your Journey With Us</h1>
-    <p>We are ready to hear your needs and turn them into real-world solutions.</p>
-  </div>
+  
+  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
+    <div class="sopratitolo">Let's Connect</div>
+    <h1>Start Your Digital Journey</h1>
+    <p class="subtitle">We're ready to hear your needs and transform them into a winning technological strategy.</p>
+  </section>
 
-  <div class="grid-12">
-    <!-- EMAIL -->
-    <div class="col-span-12 slide-up delay-1">
-      <div class="card-h">
-        <div class="card-icon-h">📧</div>
-        <div class="card-body-h">
-          <h3>Contact us via Email</h3>
-          <p>Write to us for any questions or to request a detailed quote. We reply within 24 business hours.</p>
-          <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; margin-top: 12px;">info@webtecnologie.it</a>
-        </div>
-      </div>
+  <div class="wt-section">
+    <!-- CONTACT 1 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">📧</div>
+      <h2>Talk to our experts</h2>
+      <p>Send us an email with your project details. We typically respond within 24 business hours to schedule a free initial kickoff meeting.</p>
+      <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">info@webtecnologie.it</a>
     </div>
 
-    <!-- WHY US -->
-    <div class="col-span-12 slide-up delay-2">
-      <div class="card-h">
-        <div class="card-icon-h">🤝</div>
-        <div class="card-body-h">
-          <h3>Why Choose Us?</h3>
-          <p>We offer dedicated support at every stage of the project, tailored strategic consulting, and total transparency on costs and timelines.</p>
-        </div>
-      </div>
+    <!-- CONTACT 2 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🤝</div>
+      <h2>Partnership & Consulting</h2>
+      <p>Looking for a long-term collaboration or specialist consulting on AI and Cloud? We support your team throughout every phase of digital transformation.</p>
     </div>
   </div>
 
-  <div class="final-cta slide-up delay-3">
-    <h3>Follow Us</h3>
-    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
-      <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link">GitHub Profile</a>
-      <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link">Corporate Website</a>
+  <section class="final-cta-v slide-up">
+    <h3>Follow our official channels</h3>
+    <div style="margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+      <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link" style="font-size: 1rem;">GitHub Profile</a>
+      <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link" style="font-size: 1rem;">Corporate Website</a>
     </div>
-  </div>
+  </section>
+
 </div>

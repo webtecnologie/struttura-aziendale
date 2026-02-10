@@ -1,47 +1,42 @@
 ---
 layout: default
 title: Contatti
-description: Hai un progetto in mente? Contattaci per una consulenza gratuita su sviluppo web, AI e soluzioni cloud.
+description: Entra in contatto con i nostri esperti AI e Web. Richiedi una consulenza premium per il tuo business.
 lang: it
 permalink: /contatti/
 ---
 
 <div class="wt-container">
-  <div class="wt-section-header fade-in">
-    <h1>Inizia il Tuo Viaggio con Noi</h1>
-    <p>Siamo pronti ad ascoltare le tue necessità e a trasformarle in soluzioni reali.</p>
-  </div>
+  
+  <section class="hero-v fade-in" style="padding: 100px 0 60px;">
+    <div class="sopratitolo">Connettiamoci</div>
+    <h1>Inizia il tuo Viaggio Digitale</h1>
+    <p class="subtitle">Siamo pronti ad ascoltare le tue necessità e a trasformarle in una strategia tecnologica vincente.</p>
+  </section>
 
-  <div class="grid-12">
-    <!-- EMAIL -->
-    <div class="col-span-12 slide-up delay-1">
-      <div class="card-h">
-        <div class="card-icon-h">📧</div>
-        <div class="card-body-h">
-          <h3>Contattaci via Email</h3>
-          <p>Scrivici per qualsiasi domanda o per richiedere un preventivo dettagliato. Rispondiamo entro 24 ore lavorative.</p>
-          <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; margin-top: 12px;">info@webtecnologie.it</a>
-        </div>
-      </div>
+  <div class="wt-section">
+    <!-- CONTATTO 1 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">📧</div>
+      <h2>Parla con i nostri esperti</h2>
+      <p>Inviaci una email con i dettagli del tuo progetto. Rispondiamo solitamente entro 24 ore lavorative per fissare un primo kickoff meeting gratuito.</p>
+      <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 300; color: var(--accent); letter-spacing: -0.02em;">info@webtecnologie.it</a>
     </div>
 
-    <!-- WHY US -->
-    <div class="col-span-12 slide-up delay-2">
-      <div class="card-h">
-        <div class="card-icon-h">🤝</div>
-        <div class="card-body-h">
-          <h3>Perché Scegliere Noi?</h3>
-          <p>Offriamo supporto dedicato in ogni fase del progetto, consulenza strategica su misura e una trasparenza totale su costi e tempistiche.</p>
-        </div>
-      </div>
+    <!-- CONTATTO 2 -->
+    <div class="pillar-v slide-up">
+      <div class="icon">🤝</div>
+      <h2>Partnership & Consulenza</h2>
+      <p>Cerchi una collaborazione a lungo termine o una consulenza specialistica su AI e Cloud? Supportiamo il tuo team in ogni fase della trasformazione digitale.</p>
     </div>
   </div>
 
-  <div class="final-cta slide-up delay-3">
-    <h3>Seguici sui Social</h3>
-    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
-      <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link">GitHub Profile</a>
-      <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link">Sito Corporate</a>
+  <section class="final-cta-v slide-up">
+    <h3>Seguici sui canali ufficiali</h3>
+    <div style="margin-top: 32px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+      <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link" style="font-size: 1rem;">GitHub Profile</a>
+      <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link" style="font-size: 1rem;">Sito Corporate</a>
     </div>
-  </div>
+  </section>
+
 </div>
