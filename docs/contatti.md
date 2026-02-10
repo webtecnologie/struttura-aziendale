@@ -6,30 +6,36 @@ lang: it
 permalink: /contatti/
 ---
 
-# Contatti
+<div class="wt-container">
+  <div class="wt-section-header">
+    <h1>Inizia il Tuo Viaggio con Noi</h1>
+    <p>Siamo pronti ad ascoltare le tue necessità e a trasformarle in soluzioni reali.</p>
+  </div>
 
-Siamo pronti ad ascoltare le tue idee e a trasformarle in realtà tecnologiche. Che tu abbia bisogno di un consiglio o di un progetto completo, non esitare a scriverci.
+  <div class="wt-grid-horiz">
+    <!-- EMAIL -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">📧</div>
+      <div class="wt-card-body">
+        <h3>Contattaci via Email</h3>
+        <p>Scrivici per qualsiasi domanda o per richiedere un preventivo dettagliato.</p>
+        <a href="mailto:info@webtecnologie.it" style="font-size: 1.2rem; font-weight: 700; color: var(--accent);">info@webtecnologie.it</a>
+      </div>
+    </div>
 
-## 📧 Mettiamoci in contatto
+    <!-- WHY US -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤝</div>
+      <div class="wt-card-body">
+        <h3>Perché Scegliere Noi?</h3>
+        <p>Garantiamo risposte entro 24 ore lavorative, supporto dedicato in ogni fase del progetto e soluzioni personalizzate al 100%.</p>
+      </div>
+    </div>
+  </div>
 
-Puoi raggiungerci tramite i seguenti canali:
-
-- **Email**: [info@webtecnologie.it](mailto:info@webtecnologie.it)
-- **GitHub**: [webtecnologie](https://github.com/webtecnologie)
-- **Sito Web**: [webtecnologie.github.io/struttura-aziendale](https://webtecnologie.github.io/struttura-aziendale)
-
----
-
-## 💬 Perché scegliere noi?
-
-- **Risposte rapide**: Rispondiamo ad ogni richiesta entro 24 ore lavorative.
-- **Supporto dedicato**: Seguiamo il cliente in ogni fase del progetto, dal kickoff al deploy.
-- **Consulenza su misura**: Non offriamo prodotti pronti, ma soluzioni cucite sulle tue necessità.
-- **Preventivi chiari**: Massima trasparenza sui costi e sulle tempistiche di consegna.
-
----
-
-<div class="text-center mt-space">
-  <p>Inviaci una mail oggi stesso per iniziare a collaborare.</p>
-  <a href="mailto:info@webtecnologie.it" class="btn-primary">Invia una Email</a>
+  <!-- SOCIAL/WEB LINKS -->
+  <div style="margin-top: 60px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link">GitHub Profile</a>
+    <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link">Corporate Website</a>
+  </div>
 </div>

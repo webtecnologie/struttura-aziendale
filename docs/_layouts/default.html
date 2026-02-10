@@ -1,107 +1,94 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: 'it' }}">
+<html lang="{{ page.lang | default: 'it' }}" class="theme-dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title | default: site.title }} — {{ site.brand.name }}</title>
 
-  <!-- SEO -->
   <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta name="keywords" content="sviluppo web, AI, cloud, enterprise, sharepoint, react, nextjs">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-  <!-- Social Media -->
-  <meta property="og:title" content="{{ page.title | default: site.title }} — {{ site.brand.name }}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  {% if site.brand.logo %}
-  <meta property="og:image" content="{{ site.brand.logo | absolute_url }}">
-  {% endif %}
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-  <!-- Styles & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <!-- THEME JS (Header to avoid flash) -->
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 </head>
 
-<body class="wt-body">
+<body>
 
   {%- assign is_en = false -%}
-  {%- if page.lang == 'en' -%}
-  {%- assign is_en = true -%}
-  {%- else -%}
-  {%- if page.url contains '/en/' -%}
-  {%- assign is_en = true -%}
-  {%- endif -%}
-  {%- endif -%}
+  {%- if page.lang == 'en' -%}{%- assign is_en = true -%}{%- endif -%}
+  {%- if page.url contains '/en/' -%}{%- assign is_en = true -%}{%- endif -%}
 
-  {%- assign current_path = page.url | default: '/' -%}
+  {%- comment -%} URL Mapping {%- endcomment -%}
+  {%- assign base = "/struttura-aziendale" -%}
 
   {%- if is_en -%}
-  {%- assign url_it = current_path | replace: '/en/', '/' -%}
-  {%- if current_path == '/en/' -%}{%- assign url_it = '/' -%}{%- endif -%}
-  {%- assign url_en = current_path -%}
+  {%- assign home_url = base | append: "/en/" -%}
+  {%- assign services_url = base | append: "/en/services/" -%}
+  {%- assign projects_url = base | append: "/en/projects/" -%}
+  {%- assign contact_url = base | append: "/en/contact/" -%}
+  {%- assign lang_label = "IT" -%}
+  {%- assign lang_target = base | append: "/" -%}
   {%- else -%}
-  {%- assign url_it = current_path -%}
-  {%- assign url_en = '/en' | append: current_path | replace: '//', '/' -%}
-  {%- if current_path == '/' -%}{%- assign url_en = '/en/' -%}{%- endif -%}
+  {%- assign home_url = base | append: "/" -%}
+  {%- assign services_url = base | append: "/servizi/" -%}
+  {%- assign projects_url = base | append: "/progetti/" -%}
+  {%- assign contact_url = base | append: "/contatti/" -%}
+  {%- assign lang_label = "EN" -%}
+  {%- assign lang_target = base | append: "/en/" -%}
   {%- endif -%}
 
-  <header class="wt-header">
-    <div class="wt-container wt-nav">
-      <div class="wt-brand">
-        <a href="{{ '/' | relative_url }}" class="wt-brand-link">
-          {% if site.brand.logo %}
-          <img src="{{ site.brand.logo | relative_url }}" alt="Logo" class="wt-logo">
-          {% endif %}
-          <span class="wt-brand-text">{{ site.brand.name }}</span>
+  <!-- NAVBAR PRO -->
+  <nav class="wt-navbar">
+    <div class="wt-container">
+      <div class="wt-logo-box">
+        <a href="{{ home_url }}">
+          <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="Logo" style="height: 32px;">
+          <span>WebTecnologie</span>
         </a>
       </div>
 
-      {% if is_en %}{% assign nav_items = site.nav_en %}{% else %}{% assign nav_items = site.nav %}{% endif %}
+      <div class="wt-nav-menu">
+        <a href="{{ home_url }}"
+          class="wt-nav-link {% if page.url == '/' or page.url == '/en/' %}active{% endif %}">Home</a>
+        <a href="{{ services_url }}"
+          class="wt-nav-link {% if page.url contains 'servizi' or page.url contains 'services' %}active{% endif %}">{%
+          if is_en %}Services{% else %}Servizi{% endif %}</a>
+        <a href="{{ projects_url }}"
+          class="wt-nav-link {% if page.url contains 'progetti' or page.url contains 'projects' %}active{% endif %}">{%
+          if is_en %}Projects{% else %}Progetti{% endif %}</a>
+        <a href="{{ contact_url }}"
+          class="wt-nav-link {% if page.url contains 'contatti' or page.url contains 'contact' %}active{% endif %}">{%
+          if is_en %}Contact{% else %}Contatti{% endif %}</a>
+      </div>
 
-      <nav class="wt-menu">
-        {% for item in nav_items %}
-        <a href="{{ item.url | relative_url }}" class="wt-nav-item {% if page.url == item.url %}active{% endif %}">
-          {{ item.name }}
-        </a>
-        {% endfor %}
-
-        <div class="wt-lang" style="display: flex; gap: 8px; margin-left: 10px; align-items: center;">
-          <a href="{{ url_it | relative_url }}" class="{% unless is_en %}active{% endunless %}">IT</a>
-          <span style="opacity: 0.3">|</span>
-          <a href="{{ url_en | relative_url }}" class="{% if is_en %}active{% endif %}">EN</a>
-        </div>
-      </nav>
+      <div class="wt-nav-actions">
+        <button class="lang-switch" onclick="location.href='{{ lang_target }}'">{{ lang_label }}</button>
+        <button class="theme-switch" onclick="WT_THEME.toggle()">🌓</button>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main class="wt-main">
-    <div class="wt-container">
-      {{ content }}
-    </div>
+  <!-- MAIN CONTENT -->
+  <main>
+    {{ content }}
   </main>
 
+  <!-- FOOTER -->
   <footer class="wt-footer">
     <div class="wt-container">
-      <div style="margin-bottom: 20px;">
-        <strong style="font-size: 1.5rem; color: var(--text-main);">{{ site.brand.name }}</strong><br>
-        <p>{{ site.description }}</p>
+      <div class="wt-footer-nav">
+        <a href="{{ home_url }}">Home</a>
+        <a href="{{ services_url }}">{% if is_en %}Services{% else %}Servizi{% endif %}</a>
+        <a href="{{ projects_url }}">{% if is_en %}Projects{% else %}Progetti{% endif %}</a>
+        <a href="{{ contact_url }}">{% if is_en %}Contact{% else %}Contatti{% endif %}</a>
       </div>
-      <p>© {{ site.time | date: "%Y" }} — {% if is_en %}Excellence in Digital Solutions{% else %}Eccellenza nelle
-        Soluzioni Digitali{% endif %}</p>
-      <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
-        <a href="{{ '/contatti' | relative_url }}">{% if is_en %}Contact{% else %}Contatti{% endif %}</a>
-        <a href="{{ '/servizi' | relative_url }}">{% if is_en %}Services{% else %}Servizi{% endif %}</a>
-        <a href="{{ '/progetti' | relative_url }}">{% if is_en %}Projects{% else %}Progetti{% endif %}</a>
-      </div>
+      <p class="wt-copy">© 2026 WebTecnologie — {{ site.description }}</p>
     </div>
   </footer>
 
-  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
 </body>
 
 </html>

@@ -6,49 +6,44 @@ lang: en
 permalink: /en/projects/
 ---
 
-# Recent Projects
+<div class="wt-container">
+  <div class="wt-section-header">
+    <h1>Project Portfolio</h1>
+    <p>Some of the digital successes achieved for our partners.</p>
+  </div>
 
-Discover how we've helped other companies overcome their technological challenges.
+  <div class="wt-grid-horiz">
+    <!-- WEB PART -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🧩</div>
+      <div class="wt-card-body">
+        <h3>Corporate Structure Web Part</h3>
+        <p>A professional solution for SharePoint Online that dynamically visualizes the corporate org chart using Microsoft Graph API. Fully developed in SPFx.</p>
+        <a href="https://github.com/webtecnologie/struttura-aziendale/tree/main" target="_blank" style="display:inline-block; margin-top:10px; font-weight:600;">View on GitHub →</a>
+      </div>
+    </div>
 
-## 🧩 Web and Enterprise Solutions
+    <!-- DASHBOARD -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">📊</div>
+      <div class="wt-card-body">
+        <h3>Cloud Analytics Dashboard</h3>
+        <p>An enterprise platform integrated with Azure for real-time data monitoring. Optimized for the visualization of large volumes of information.</p>
+      </div>
+    </div>
 
-### **Corporate Structure Web Part**
-**Link:** [View on GitHub](https://github.com/webtecnologie/struttura-aziendale/tree/main)
+    <!-- AI -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤖</div>
+      <div class="wt-card-body">
+        <h3>AI Support Assistant</h3>
+        <p>Intelligent chatbot system that automates the resolution of first-level tickets by analyzing the internal corporate KB in real-time.</p>
+      </div>
+    </div>
+  </div>
 
-A professional solution developed for SharePoint Online that allows for dynamic visualization of the corporate organizational chart.
-- Uses **Microsoft Graph API** to retrieve data in real-time.
-- Developed entirely with the **SPFx** framework.
-- Modern, responsive, and highly customizable interface.
-
----
-
-### **Cloud Analytics Dashboard**
-A custom platform created for a multinational company, integrated with Azure for real-time energy consumption monitoring.
-
-- Stack: React, Node.js, Azure IoT Hub.
-- Result: 15% reduction in waste in central offices.
-
----
-
-## 🤖 AI Innovation
-
-### **RAG Virtual Assistant**
-Implementation of an AI assistant for internal technical support, capable of answering complex questions based on private company documentation.
-
-- Technologies: OpenAI API, LangChain, Vector Databases.
-- Result: Internal ticket resolution times cut in half.
-
----
-
-### **Billing Automation**
-System for automatic data extraction from paper invoices using OCR models and artificial intelligence.
-
-- Technologies: Python, Azure AI Document Intelligence.
-- Result: 90% automation of the data entry process.
-
----
-
-<div class="text-center mt-space">
-  <p>Want to see more projects or discuss one of your ideas?</p>
-  <a href="/en/contact/" class="btn-primary">Talk about your project</a>
+  <div style="text-align: center; margin-top: 60px;">
+    <p style="color:var(--text-secondary);">Looking to build something similar?</p>
+    <a href="/struttura-aziendale/en/contact/" class="wt-btn-gradient" style="margin-top:15px;">Talk about Your Project</a>
+  </div>
 </div>

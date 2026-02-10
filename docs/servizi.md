@@ -6,40 +6,51 @@ lang: it
 permalink: /servizi/
 ---
 
-# I Nostri Servizi
+<div class="wt-container">
+  <div class="wt-section-header">
+    <h1>I Nostri Servizi</h1>
+    <p>Offriamo una gamma completa di competenze tecnologiche per accelerare il tuo business.</p>
+  </div>
 
-Offriamo una gamma completa di servizi tecnologici progettati per accelerare la crescita della tua azienda.
+  <div class="wt-grid-horiz">
+    <!-- WEB -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🌐</div>
+      <div class="wt-card-body">
+        <h3>Sviluppo Web Frontend</h3>
+        <p>Utilizziamo React, Next.js e TypeScript per creare interfacce fluide, veloci e accessibili. Massima attenzione ai Core Web Vitals e alla SEO.</p>
+      </div>
+    </div>
 
-## 🌐 Siti Web & Applicazioni
-Sviluppiamo piattaforme digitali moderne che mettono al centro l'esperienza dell'utente e la velocità di esecuzione.
-- Sviluppo custom con **React** e **Next.js**
-- Design UI/UX moderno e intuitivo
-- Ottimizzazione SEO e Core Web Vitals
-- Integrazioni API di terze parti
+    <!-- AI -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤖</div>
+      <div class="wt-card-body">
+        <h3>AI & Machine Learning</h3>
+        <p>Implementazione di assistenti virtuali intelligenti basati su OpenAI e modelli RAG (Retrieval-Augmented Generation) per gestire la conoscenza aziendale.</p>
+      </div>
+    </div>
 
-## 🤖 Soluzioni AI & Automazione
-Porta l'intelligenza artificiale nel cuore del tuo business per automatizzare processi e analizzare dati.
-- Sviluppo di Chatbot aziendali personalizzati
-- Implementazione di modelli RAG (Retrieval-Augmented Generation)
-- Automazione di workflow complessi
-- Assistenti virtuali integrati su Microsoft Teams
+    <!-- ENTERPRISE -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🏢</div>
+      <div class="wt-card-body">
+        <h3>Soluzioni Microsoft 365</h3>
+        <p>Sviluppo di Web Part complesse tramite SPFx, automazioni SharePoint con Power Automate e integrazioni tramite Microsoft Graph API.</p>
+      </div>
+    </div>
 
-## 🏢 Soluzioni Enterprise & Microsoft 365
-Sfrutta al massimo la potenza della tua suite Microsoft 365 con personalizzazioni ad hoc.
-- Sviluppo di Web Part custom con **SPFx** per SharePoint
-- Automazione di processi con **Power Platform**
-- Dashboard di monitoraggio su Azure
-- Integrazioni sicure tramite Microsoft Graph API
+    <!-- BACKEND -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">⚙️</div>
+      <div class="wt-card-body">
+        <h3>Backend & API</h3>
+        <p>Progettazione di architetture server scalabili con Node.js e Python. Sviluppo di API REST e GraphQL sicure e performanti.</p>
+      </div>
+    </div>
+  </div>
 
-## ⚙️ Backend & Infrastruttura
-Costruiamo le fondamenta solide su cui poggiano le tue applicazioni più critiche.
-- Sviluppo API RESTful e GraphQL
-- Gestione database relazionali e NoSQL
-- Migrazione al cloud e deploy su Azure/AWS
-- Sicurezza e scalabilità dei sistemi
-
----
-
-<div class="text-center mt-space">
-    <a href="/contatti" class="btn-primary">Richiedi un preventivo gratuito</a>
+  <div style="text-align: center; margin-top: 60px;">
+    <a href="/struttura-aziendale/contatti/" class="wt-btn-gradient">Richiedi un Preventivo Gratuito</a>
+  </div>
 </div>

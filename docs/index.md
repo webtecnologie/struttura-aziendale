@@ -6,34 +6,58 @@ lang: it
 permalink: /
 ---
 
-# Innovazione Digitale su Misura
+<div class="wt-container">
+  <!-- HERO ORIZZONTALE -->
+  <header class="wt-hero">
+    <div class="wt-hero-content">
+      <h1>Innovazione Digitale su Misura</h1>
+      <p>Trasformiamo le tue idee in soluzioni tecnologiche performanti. Guidiamo il tuo business verso il futuro con React, AI e Cloud.</p>
+      <a href="/struttura-aziendale/servizi/" class="wt-btn-gradient">Esplora i Servizi</a>
+    </div>
+    <div class="wt-hero-visual">
+      <!-- Decorazione SVG o Pattern via CSS nel visual -->
+      <div style="font-size: 5rem; font-weight: 800; opacity: 0.2;">WT</div>
+    </div>
+  </header>
 
-Trasformiamo le tue idee in soluzioni tecnologiche performanti. Dallo sviluppo React alle integrazioni Microsoft 365, guidiamo il tuo business verso il futuro.
+  <!-- SEZIONE SERVIZI (CARD ORIZZONTALI) -->
+  <div class="wt-section-header">
+    <h2>I Nostri Pilastri</h2>
+    <p>Soluzioni progettate per la scalabilità e l'eccellenza operativa.</p>
+  </div>
 
-Offriamo competenze avanzate per accelerare la transizione digitale e l'efficienza operativa.
+  <div class="wt-grid-horiz">
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🌐</div>
+      <div class="wt-card-body">
+        <h3>Sviluppo Web Moderno</h3>
+        <p>Applicazioni veloci e SEO-optimized realizzate con React e Next.js per un'esperienza utente senza compromessi.</p>
+      </div>
+    </div>
 
-## 🌐 Sviluppo Web Moderno
-Realizziamo applicazioni web scalabili e veloci con le tecnologie più avanzate del mercato.
-- **Frontend Performance**: Utilizziamo React e Next.js per interfacce utente fluide e ottimizzate SEO.
-- **Architetture Backend**: Soluzioni robuste con Node.js e Python per gestire carichi elevati.
-- **Design Responsivo**: Interfacce che si adattano perfettamente a qualsiasi dispositivo.
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤖</div>
+      <div class="wt-card-body">
+        <h3>AI & Automazione</h3>
+        <p>Integrazione di modelli linguistici (LLM) e automazioni intelligenti per ottimizzare i processi aziendali.</p>
+      </div>
+    </div>
 
-## 🤖 AI & Automazione
-Integriamo l'intelligenza artificiale nei tuoi processi aziendali per massimizzare la produttività.
-- **Custom LLM & RAG**: Assistenti virtuali addestrati sui tuoi dati privati per risposte precise.
-- **Process Automation**: Automatizziamo i task ripetitivi liberando il tempo del tuo team.
-- **Analisi Predittiva**: Sfrutta i dati per prevedere i trend e prendere decisioni migliori.
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">☁️</div>
+      <div class="wt-card-body">
+        <h3>Cloud & Enterprise</h3>
+        <p>Soluzioni avanzate per SharePoint Online, Azure e Microsoft 365 tramite lo sviluppo di Web Part SPFx.</p>
+      </div>
+    </div>
+  </div>
 
-## 🏢 Cloud & Microsoft 365
-Ottimizziamo il tuo ecosistema aziendale con soluzioni cloud integrate e sicure.
-- **SharePoint & SPFx**: Web part e personalizzazioni avanzate per la tua intranet moderna.
-- **Azure Cloud Services**: Infrastrutture scalabili e sicure per le tue applicazioni enterprise.
-- **Microsoft Graph API**: Integrazioni profonde tra i tool Microsoft e le tue app custom.
-
----
-
-<div class="text-center mt-space">
-  <h3>Pronto a iniziare?</h3>
-  <p>Ogni progetto inizia con una conversazione. Raccontaci la tua visione.</p>
-  <a href="/contatti/" class="btn-primary">Mettiamoci in contatto</a>
+  <!-- CALL TO ACTION FINAL -->
+  <div class="wt-card-horiz" style="margin-top: 80px; background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--glow) 100%);">
+    <div class="wt-card-body" style="text-align: center; width: 100%;">
+      <h2>Pronto a iniziare?</h2>
+      <p>Ogni grande progetto inizia con una conversazione. Raccontaci la tua visione oggi stesso.</p>
+      <a href="/struttura-aziendale/contatti/" class="wt-btn-gradient" style="margin-top: 20px;">Richiedi una Consulenza</a>
+    </div>
+  </div>
 </div>

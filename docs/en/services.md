@@ -6,40 +6,51 @@ lang: en
 permalink: /en/services/
 ---
 
-# Our Services
+<div class="wt-container">
+  <div class="wt-section-header">
+    <h1>Our Services</h1>
+    <p>We offer a comprehensive range of technological expertise to accelerate your business.</p>
+  </div>
 
-We offer a full range of technology services designed to accelerate your business growth.
+  <div class="wt-grid-horiz">
+    <!-- WEB -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🌐</div>
+      <div class="wt-card-body">
+        <h3>Frontend Web Development</h3>
+        <p>We use React, Next.js, and TypeScript to create fluid, fast, and accessible interfaces. Strong focus on Core Web Vitals and SEO.</p>
+      </div>
+    </div>
 
-## 🌐 Web Sites & Applications
-We develop modern digital platforms that focus on user experience and speed.
-- Custom development with **React** and **Next.js**
-- Modern and intuitive UI/UX design
-- SEO and Core Web Vitals optimization
-- Third-party API integrations
+    <!-- AI -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤖</div>
+      <div class="wt-card-body">
+        <h3>AI & Machine Learning</h3>
+        <p>Implementation of intelligent virtual assistants based on OpenAI and RAG (Retrieval-Augmented Generation) models to manage corporate knowledge.</p>
+      </div>
+    </div>
 
-## 🤖 AI & Automation Solutions
-Bring artificial intelligence to the heart of your business to automate processes and analyze data.
-- Development of personalized corporate Chatbots
-- Implementation of RAG (Retrieval-Augmented Generation) models
-- Automation of complex workflows
-- Virtual assistants integrated with Microsoft Teams
+    <!-- ENTERPRISE -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🏢</div>
+      <div class="wt-card-body">
+        <h3>Microsoft 365 Solutions</h3>
+        <p>Development of complex Web Parts using SPFx, SharePoint automation with Power Automate, and integration via Microsoft Graph API.</p>
+      </div>
+    </div>
 
-## 🏢 Enterprise & Microsoft 365 Solutions
-Make the most of your Microsoft 365 suite with tailored customizations.
-- Custom Web Part development with **SPFx** for SharePoint
-- Process automation with **Power Platform**
-- Monitoring dashboards on Azure
-- Secure integrations via Microsoft Graph API
+    <!-- BACKEND -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">⚙️</div>
+      <div class="wt-card-body">
+        <h3>Backend & API</h3>
+        <p>Design of scalable server architectures with Node.js and Python. Development of secure and high-performance REST and GraphQL APIs.</p>
+      </div>
+    </div>
+  </div>
 
-## ⚙️ Backend & Infrastructure
-We build the solid foundations upon which your most critical applications rest.
-- RESTful and GraphQL API development
-- Relational and NoSQL database management
-- Cloud migration and deployment on Azure/AWS
-- System security and scalability
-
----
-
-<div class="text-center mt-space">
-    <a href="/en/contact/" class="btn-primary">Request a free quote</a>
+  <div style="text-align: center; margin-top: 60px;">
+    <a href="/struttura-aziendale/en/contact/" class="wt-btn-gradient">Request a Free Quote</a>
+  </div>
 </div>

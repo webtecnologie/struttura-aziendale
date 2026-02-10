@@ -6,30 +6,36 @@ lang: en
 permalink: /en/contact/
 ---
 
-# Contact
+<div class="wt-container">
+  <div class="wt-section-header">
+    <h1>Start Your Journey With Us</h1>
+    <p>We are ready to hear your needs and turn them into real-world solutions.</p>
+  </div>
 
-We are ready to listen to your ideas and turn them into technological realities. Whether you need advice or a complete project, don't hesitate to write to us.
+  <div class="wt-grid-horiz">
+    <!-- EMAIL -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">📧</div>
+      <div class="wt-card-body">
+        <h3>Contact us via Email</h3>
+        <p>Write to us for any questions or to request a detailed quote.</p>
+        <a href="mailto:info@webtecnologie.it" style="font-size: 1.2rem; font-weight: 700; color: var(--accent);">info@webtecnologie.it</a>
+      </div>
+    </div>
 
-## 📧 Let's get in touch
+    <!-- WHY US -->
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤝</div>
+      <div class="wt-card-body">
+        <h3>Why Choose Us?</h3>
+        <p>We guarantee responses within 24 business hours, dedicated support at every stage of the project, and 100% personalized solutions.</p>
+      </div>
+    </div>
+  </div>
 
-You can reach us through the following channels:
-
-- **Email**: [info@webtecnologie.it](mailto:info@webtecnologie.it)
-- **GitHub**: [webtecnologie](https://github.com/webtecnologie)
-- **Website**: [webtecnologie.github.io/struttura-aziendale](https://webtecnologie.github.io/struttura-aziendale)
-
----
-
-## 💬 Why choose us?
-
-- **Fast responses**: We reply to every request within 24 business hours.
-- **Dedicated support**: We guide the client through every phase of the project, from kickoff to deploy.
-- **Tailored consulting**: We don't offer ready-made products, but solutions stitched to your needs.
-- **Clear quotes**: Maximum transparency on costs and delivery timelines.
-
----
-
-<div class="text-center mt-space">
-  <p>Send us an email today to start collaborating.</p>
-  <a href="mailto:info@webtecnologie.it" class="btn-primary">Send an Email</a>
+  <!-- SOCIAL/WEB LINKS -->
+  <div style="margin-top: 60px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+    <a href="https://github.com/webtecnologie" target="_blank" class="wt-nav-link">GitHub Profile</a>
+    <a href="https://webtecnologie.it" target="_blank" class="wt-nav-link">Corporate Website</a>
+  </div>
 </div>

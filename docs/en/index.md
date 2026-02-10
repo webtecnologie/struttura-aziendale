@@ -1,39 +1,62 @@
 ---
 layout: default
 title: Home
-description: Digital solutions for your business. Modern web development, AI integrations, and tailor-made cloud technologies.
+description: Digital solutions for your business. Modern web development, AI integrations, and bespoke cloud technologies.
 lang: en
 permalink: /en/
 ---
 
-# Tailored Digital Innovation
+<div class="wt-container">
+  <!-- HORIZONTAL HERO -->
+  <header class="wt-hero">
+    <div class="wt-hero-content">
+      <h1>Bespoke Digital Innovation</h1>
+      <p>We transform your ideas into high-performance technological solutions. Guiding your business into the future with React, AI, and Cloud.</p>
+      <a href="/struttura-aziendale/en/services/" class="wt-btn-gradient">Explore Services</a>
+    </div>
+    <div class="wt-hero-visual">
+      <div style="font-size: 5rem; font-weight: 800; opacity: 0.2;">WT</div>
+    </div>
+  </header>
 
-We turn your ideas into high-performance technological solutions. From React development to Microsoft 365 integrations, we guide your business into the future.
+  <!-- SERVICES SECTION (HORIZONTAL CARDS) -->
+  <div class="wt-section-header">
+    <h2>Our Pillars</h2>
+    <p>Solutions engineered for scalability and operational excellence.</p>
+  </div>
 
-We offer advanced expertise to accelerate digital transformation and operational efficiency.
+  <div class="wt-grid-horiz">
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🌐</div>
+      <div class="wt-card-body">
+        <h3>Modern Web Development</h3>
+        <p>Fast, SEO-optimized applications built with React and Next.js for a seamless user experience.</p>
+      </div>
+    </div>
 
-## 🌐 Modern Web Development
-We build scalable and fast web applications with the most advanced technologies on the market.
-- **Frontend Performance**: We use React and Next.js for fluid and SEO-optimized user interfaces.
-- **Backend Architectures**: Robust solutions with Node.js and Python to handle high loads.
-- **Responsive Design**: Interfaces that adapt perfectly to any device.
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">🤖</div>
+      <div class="wt-card-body">
+        <h3>AI & Automation</h3>
+        <p>Integration of Large Language Models (LLMs) and intelligent automation to streamline business processes.</p>
+      </div>
+    </div>
 
-## 🤖 AI & Automation
-We integrate artificial intelligence into your business processes to maximize productivity.
-- **Custom LLM & RAG**: Virtual assistants trained on your private data for precise answers.
-- **Process Automation**: We automate repetitive tasks, freeing up your team's time.
-- **Predictive Analytics**: Leverage data to forecast trends and make better decisions.
+    <div class="wt-card-horiz">
+      <div class="wt-card-icon">☁️</div>
+      <div class="wt-card-body">
+        <h3>Cloud & Enterprise</h3>
+        <p>Advanced solutions for SharePoint Online, Azure, and Microsoft 365 through SPFx Web Part development.</p>
+      </div>
+    </div>
+  </div>
 
-## 🏢 Cloud & Microsoft 365
-We optimize your business ecosystem with integrated and secure cloud solutions.
-- **SharePoint & SPFx**: Advanced web parts and customizations for your modern intranet.
-- **Azure Cloud Services**: Scalable and secure infrastructure for your enterprise applications.
-- **Microsoft Graph API**: Deep integrations between Microsoft tools and your custom apps.
-
----
-
-<div class="text-center mt-space">
-  <h3>Ready to start?</h3>
-  <p>Every project begins with a conversation. Tell us your vision.</p>
-  <a href="/en/contact/" class="btn-primary">Get in touch</a>
+  <!-- FINAL CALL TO ACTION -->
+  <div class="wt-card-horiz" style="margin-top: 80px; background: linear-gradient(90deg, var(--bg-secondary) 0%, var(--glow) 100%);">
+    <div class="wt-card-body" style="text-align: center; width: 100%;">
+      <h2>Ready to start?</h2>
+      <p>Every great project starts with a conversation. Tell us your vision today.</p>
+      <a href="/struttura-aziendale/en/contact/" class="wt-btn-gradient" style="margin-top: 20px;">Book a Consultation</a>
+    </div>
+  </div>
 </div>
