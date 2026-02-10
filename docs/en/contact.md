@@ -49,6 +49,8 @@ permalink: /en/contact/
       <a href="/struttura-aziendale/en/" class="c-tab">Home</a>
       <a href="/struttura-aziendale/en/services/" class="c-tab">Services</a>
       <a href="/struttura-aziendale/en/projects/" class="c-tab">Case Studies</a>
+      <a href="/struttura-aziendale/en/pricing/" class="c-tab">Pricing</a>
+      <a href="#" class="c-tab">Blog</a>
       <a href="/struttura-aziendale/en/contact/" class="c-tab active">Contact</a>
     </nav>
   </div>

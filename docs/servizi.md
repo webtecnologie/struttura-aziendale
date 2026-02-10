@@ -177,7 +177,10 @@ permalink: /servizi/
     <div class="c-panel">
       <h2>Hai esigenze specifiche?</h2>
       <p>Creiamo soluzioni su misura modellate sul tuo business.</p>
-      <a href="/struttura-aziendale/contatti/" class="c-btn-primary" style="margin-top: 24px;">Contattaci</a>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px;">
+        <a href="/struttura-aziendale/contatti/" class="c-btn-primary">Contattaci</a>
+        <a href="/struttura-aziendale/prezzi/" class="c-btn-secondary">Consulta i Prezzi</a>
+      </div>
     </div>
   </section>
 
@@ -187,6 +190,8 @@ permalink: /servizi/
       <a href="/struttura-aziendale/" class="c-tab">Home</a>
       <a href="/struttura-aziendale/servizi/" class="c-tab active">Servizi</a>
       <a href="/struttura-aziendale/progetti/" class="c-tab">Case Studies</a>
+      <a href="/struttura-aziendale/prezzi/" class="c-tab">Prezzi</a>
+      <a href="#" class="c-tab">Blog</a>
       <a href="/struttura-aziendale/contatti/" class="c-tab">Contatti</a>
     </nav>
   </div>
