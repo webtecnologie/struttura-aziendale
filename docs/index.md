@@ -61,4 +61,3 @@ permalink: /
 
 ## 🧩 Progetti Recenti
 Scopri le soluzioni realizzate → /progetti/
-## Test Antigravity OK
