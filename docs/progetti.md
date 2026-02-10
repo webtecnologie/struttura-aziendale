@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Progetti
+description: Una galleria dei nostri lavori digitali. Applicazioni web custom, soluzioni AI innovative e progetti enterprise SharePoint.
 lang: it
 permalink: /progetti/
 ---

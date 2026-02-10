@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact
+description: Have a project in mind? Contact us for a free consultation on web development, AI, and cloud solutions.
 lang: en
 permalink: /en/contact/
 ---

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Services
+description: Explore our digital services. Custom web development, scalable backends, advanced AI integrations, and Microsoft 365 enterprise solutions.
 lang: en
 permalink: /en/services/
 ---

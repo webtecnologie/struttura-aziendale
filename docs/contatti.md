@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contatti
+description: Hai un progetto in mente? Contattaci per una consulenza gratuita su sviluppo web, AI e soluzioni cloud.
 lang: it
 permalink: /contatti/
 ---

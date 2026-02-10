@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Servizi
+description: Esplora i nostri servizi digitali. Sviluppo web custom, backend scalabili, integrazioni AI avanzate e soluzioni enterprise Microsoft 365.
 lang: it
 permalink: /servizi/
 ---
