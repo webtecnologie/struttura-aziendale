@@ -6,66 +6,40 @@ lang: it
 permalink: /servizi/
 ---
 
-# Servizi
+# I Nostri Servizi
 
-Trasformiamo idee in soluzioni digitali performanti, scalabili e integrate.
+Offriamo una gamma completa di servizi tecnologici progettati per accelerare la crescita della tua azienda.
 
-<div class="wt-tabs-container">
-  <div class="wt-tabs-nav">
-    <button class="wt-tab-btn active" onclick="WT.switchTab('sites', this)">Siti & App</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('api', this)">Backend & API</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('ai-serv', this)">AI & Automation</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('enterprise', this)">Enterprise</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('wp-adv', this)">WordPress</button>
-  </div>
+## 🌐 Siti Web & Applicazioni
+Sviluppiamo piattaforme digitali moderne che mettono al centro l'esperienza dell'utente e la velocità di esecuzione.
+- Sviluppo custom con **React** e **Next.js**
+- Design UI/UX moderno e intuitivo
+- Ottimizzazione SEO e Core Web Vitals
+- Integrazioni API di terze parti
 
-  <div id="sites" class="wt-tab-content active">
-    <h3>🌐 Siti Web & Applicazioni</h3>
-    <ul>
-      <li>Sviluppo moderno con <strong>React / Next.js</strong></li>
-      <li>UI/UX professionale</li>
-      <li>Layout responsive e accessibile</li>
-      <li>CMS headless o tradizionale</li>
-    </ul>
-  </div>
+## 🤖 Soluzioni AI & Automazione
+Porta l'intelligenza artificiale nel cuore del tuo business per automatizzare processi e analizzare dati.
+- Sviluppo di Chatbot aziendali personalizzati
+- Implementazione di modelli RAG (Retrieval-Augmented Generation)
+- Automazione di workflow complessi
+- Assistenti virtuali integrati su Microsoft Teams
 
-  <div id="api" class="wt-tab-content">
-    <h3>⚙️ Backend & API</h3>
-    <ul>
-      <li>Architetture scalabili</li>
-      <li>Microservizi Docker</li>
-      <li>API REST/GraphQL</li>
-      <li>Sicurezza, logging, autenticazione</li>
-    </ul>
-  </div>
+## 🏢 Soluzioni Enterprise & Microsoft 365
+Sfrutta al massimo la potenza della tua suite Microsoft 365 con personalizzazioni ad hoc.
+- Sviluppo di Web Part custom con **SPFx** per SharePoint
+- Automazione di processi con **Power Platform**
+- Dashboard di monitoraggio su Azure
+- Integrazioni sicure tramite Microsoft Graph API
 
-  <div id="ai-serv" class="wt-tab-content">
-    <h3>🤖 AI & Automazione</h3>
-    <ul>
-      <li>Chatbot intelligenti</li>
-      <li>Assistenti AI aziendali</li>
-      <li>Automazioni operative</li>
-      <li>Analisi e predizione con ML</li>
-    </ul>
-  </div>
+## ⚙️ Backend & Infrastruttura
+Costruiamo le fondamenta solide su cui poggiano le tue applicazioni più critiche.
+- Sviluppo API RESTful e GraphQL
+- Gestione database relazionali e NoSQL
+- Migrazione al cloud e deploy su Azure/AWS
+- Sicurezza e scalabilità dei sistemi
 
-  <div id="enterprise" class="wt-tab-content">
-    <h3>☁️ Cloud & Enterprise</h3>
-    <ul>
-      <li>Microsoft 365 & SharePoint Online</li>
-      <li>App SPFx personalizzate</li>
-      <li>Automazioni Azure</li>
-      <li>Integrazioni Graph API</li>
-    </ul>
-  </div>
+---
 
-  <div id="wp-adv" class="wt-tab-content">
-    <h3>🧰 WordPress Avanzato</h3>
-    <ul>
-      <li>Temi custom professionali</li>
-      <li>Funzionalità avanzate con ACF/CPT</li>
-      <li>API headless per app esterne</li>
-      <li>Ottimizzazione SEO & prestazioni</li>
-    </ul>
-  </div>
+<div class="text-center mt-space">
+    <a href="/contatti" class="btn-primary">Richiedi un preventivo gratuito</a>
 </div>

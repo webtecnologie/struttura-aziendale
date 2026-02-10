@@ -6,49 +6,49 @@ lang: en
 permalink: /en/projects/
 ---
 
-# Projects
+# Recent Projects
 
-A showcase of solutions delivered to companies, professionals and enterprise teams.
+Discover how we've helped other companies overcome their technological challenges.
 
-<div class="wt-tabs-container">
-  <div class="wt-tabs-nav">
-    <button class="wt-tab-btn active" onclick="WT.switchTab('p-web-en', this)">Web Apps</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('p-ai-en', this)">AI Solutions</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('p-ent-en', this)">Enterprise</button>
-    <button class="wt-tab-btn" onclick="WT.switchTab('p-wp-en', this)">WordPress</button>
-  </div>
+## 🧩 Web and Enterprise Solutions
 
-  <div id="p-web-en" class="wt-tab-content active">
-    <h3>🧩 Custom Web Applications</h3>
-    <p>Developing modern apps integrated with legacy systems, using high-performance stacks like React and Next.js.</p>
-  </div>
+### **Corporate Structure Web Part**
+**Link:** [View on GitHub](https://github.com/webtecnologie/struttura-aziendale/tree/main)
 
-  <div id="p-ai-en" class="wt-tab-content">
-    <h3>🤖 AI Solutions</h3>
-    <ul>
-      <li>Advanced chatbots for customer support</li>
-      <li>Smart automations with OpenAI and RAG</li>
-      <li>Custom predictive models</li>
-      <li>Integrated AI on corporate data</li>
-    </ul>
-  </div>
+A professional solution developed for SharePoint Online that allows for dynamic visualization of the corporate organizational chart.
+- Uses **Microsoft Graph API** to retrieve data in real-time.
+- Developed entirely with the **SPFx** framework.
+- Modern, responsive, and highly customizable interface.
 
-  <div id="p-ent-en" class="wt-tab-content">
-    <h3>☁️ Enterprise Integrations</h3>
-    <ul>
-      <li>SPFx solutions for SharePoint Online</li>
-      <li>Cloud Dashboards on Microsoft Azure</li>
-      <li>Modern corporate Intranets</li>
-      <li>Digital workflows with Power Automate & Graph API</li>
-    </ul>
-  </div>
+---
 
-  <div id="p-wp-en" class="wt-tab-content">
-    <h3>🌐 Professional WordPress</h3>
-    <ul>
-      <li>High-performance business sites</li>
-      <li>Custom themes and plugins (ACF/CPT)</li>
-      <li>Headless API for mobile or external apps</li>
-    </ul>
-  </div>
+### **Cloud Analytics Dashboard**
+A custom platform created for a multinational company, integrated with Azure for real-time energy consumption monitoring.
+
+- Stack: React, Node.js, Azure IoT Hub.
+- Result: 15% reduction in waste in central offices.
+
+---
+
+## 🤖 AI Innovation
+
+### **RAG Virtual Assistant**
+Implementation of an AI assistant for internal technical support, capable of answering complex questions based on private company documentation.
+
+- Technologies: OpenAI API, LangChain, Vector Databases.
+- Result: Internal ticket resolution times cut in half.
+
+---
+
+### **Billing Automation**
+System for automatic data extraction from paper invoices using OCR models and artificial intelligence.
+
+- Technologies: Python, Azure AI Document Intelligence.
+- Result: 90% automation of the data entry process.
+
+---
+
+<div class="text-center mt-space">
+  <p>Want to see more projects or discuss one of your ideas?</p>
+  <a href="/en/contact/" class="btn-primary">Talk about your project</a>
 </div>
