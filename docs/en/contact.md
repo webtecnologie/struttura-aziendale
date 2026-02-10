@@ -16,13 +16,20 @@ permalink: /en/contact/
   <section class="c-fade-up">
     <div class="c-grid-2">
       <div class="c-panel">
-        <div>
-          <span class="c-badge">Email</span>
-          <h2>Talk to our experts</h2>
-          <p>Email us with your project details. We typically respond within 24 business hours.</p>
-          <a href="mailto:info@webtecnologie.it" style="font-size: 1.5rem; font-weight: 500; color: var(--accent); display: block; margin-top: 16px;">info@webtecnologie.it</a>
-        </div>
-      </div>
+  <div>
+    <span class="c-badge">WhatsApp</span>
+    <h2>Contact us on WhatsApp</h2>
+    <p>Get instant replies. Ideal for quick questions, project inquiries, or urgent support.</p>
+
+    <a 
+      href="https://wa.me/393345088206?text=Hi%2C%20I%20visited%20your%20Web%20Tecnologie%20website%20and%20I%20would%20like%20more%20information."
+      target="_blank"
+      style="font-size: 1.5rem; font-weight: 500; color: var(--accent); display: block; margin-top: 16px;"
+    >
+      Open WhatsApp
+    </a>
+  </div>
+</div>
       <div class="c-panel">
         <div>
           <span class="c-badge">Social</span>
@@ -30,7 +37,7 @@ permalink: /en/contact/
           <p>Follow us on GitHub and visit our corporate site for more updates.</p>
           <div style="margin-top: 24px; display: flex; gap: 20px;">
             <a href="https://github.com/webtecnologie" target="_blank" class="c-btn-secondary">GitHub</a>
-            <a href="https://webtecnologie.it" target="_blank" class="c-btn-secondary">Corporate</a>
+            <a href="https://webtecnologie.github.io/struttura-aziendale" target="_blank" class="c-btn-secondary">Corporate</a>
           </div>
         </div>
       </div>
