@@ -38,7 +38,7 @@ permalink: /contatti/
           <p>Seguici su GitHub e visita il nostro sito corporate per restare aggiornato.</p>
           <div style="margin-top: 24px; display: flex; gap: 20px;">
             <a href="https://github.com/webtecnologie" target="_blank" class="c-btn-secondary">GitHub</a>
-            <a href="https://webtecnologie.github.io/struttura-aziendale/contatti/" target="_blank" class="c-btn-secondary">Corporate</a>
+            <a href="https://webtecnologie.github.io/struttura-aziendale" target="_blank" class="c-btn-secondary">Corporate</a>
           </div>
         </div>
       </div>
