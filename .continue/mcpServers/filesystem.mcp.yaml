@@ -1,10 +1,10 @@
-name: Filesystem MCP
-version: 0.0.1
-schema: v1
-mcpServers:
-  - name: filesystem
-    command: npx
-    args:
-      - "-y"
-      - "@modelcontextprotocol/server-filesystem"
-      - "."
+version: 1
+metadata:
+  name: filesystem
+  description: Accesso ai file locali del progetto
+servers:
+  - type: filesystem
+    id: filesystem
+    config:
+      roots:
+        - path: "C:\\Users\\alessandro.petrone\\Documents\\Struttura-Aziendale"

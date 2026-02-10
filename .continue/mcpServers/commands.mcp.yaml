@@ -1,0 +1,14 @@
+version: 1
+metadata:
+  name: commands
+  description: Comandi Git per commit e push automatico
+servers:
+  - type: commands
+    id: commands
+    config:
+      allowedCommands:
+        - git status
+        - git add .
+        - git commit -m "{{message}}"
+        - git push origin main
+        - git pull --rebase origin main
