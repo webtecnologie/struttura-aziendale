@@ -86,5 +86,5 @@ permalink: /
 <div style="margin-top: 80px; text-align: center;">
   <h2>Pronto a iniziare?</h2>
   <p style="color: var(--text-muted); margin-bottom: 30px;">Ogni progetto inizia con una conversazione. Raccontaci la tua visione.</p>
-  <a href="/contatti" class="wt-tab-btn active" style="text-decoration: none; padding: 15px 40px; font-size: 1.1rem;">Parliamo del tuo progetto</a>
+  <a href="struttura-aziendale/contatti" class="wt-tab-btn active" style="text-decoration: none; padding: 15px 40px; font-size: 1.1rem;">Parliamo del tuo progetto</a>
 </div>
