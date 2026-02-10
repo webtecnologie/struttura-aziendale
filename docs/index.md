@@ -14,7 +14,7 @@ permalink: /
   </p>
   <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
     <a href="/servizi" class="wt-tab-btn active" style="text-decoration: none;">Scopri i Servizi</a>
-    <a href="/contatti" class="wt-tab-btn" style="text-decoration: none;">Contattaci</a>
+    <a href="struttura-aziendale/contatti" class="wt-tab-btn" style="text-decoration: none;">Contattaci</a>
   </div>
 </div>
 
