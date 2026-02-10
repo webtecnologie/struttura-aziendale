@@ -1,0 +1,16 @@
+{
+    "name": "Web Tecnologie",
+    "description": "Servizi avanzati di AI, automazioni, DevOps, backend, WordPress, WooCommerce, Docker e Proxmox.",
+    "author": "Alessandro Petrone",
+    "language": "it",
+    "website": "https://webtecnologie.github.io/struttura-aziendale/",
+    "services": [
+        "AI & Automazione",
+        "Backend & API",
+        "Microsoft 365 e SPFx",
+        "DevOps & Proxmox",
+        "Docker & Containerizzazione",
+        "WordPress & WooCommerce"
+    ],
+    "logo": "/struttura-aziendale/favicon.png"
+}

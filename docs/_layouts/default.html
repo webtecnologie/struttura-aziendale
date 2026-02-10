@@ -6,6 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title | default: site.title }} — {{ site.brand.name }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/struttura-aziendale/favicon.ico">
+  <link rel="icon" type="image/png" href="/struttura-aziendale/favicon.png">
+
+  <!-- SEO / OpenGraph -->
+  <meta property="og:title" content="Web Tecnologie">
+  <meta property="og:description" content="Soluzioni AI, automazioni, backend, DevOps e sviluppo cloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://webtecnologie.github.io/struttura-aziendale/">
+  <meta property="og:image" content="https://webtecnologie.github.io/struttura-aziendale/favicon.png">
+
+  <!-- JSON-LD – Schema.org -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Web Tecnologie",
+      "url": "https://webtecnologie.github.io/struttura-aziendale/",
+      "logo": "https://webtecnologie.github.io/struttura-aziendale/favicon.png",
+      "sameAs": [
+        "https://github.com/webtecnologie"
+      ]
+    }
+  </script>
+
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 </head>
