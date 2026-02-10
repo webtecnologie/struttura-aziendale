@@ -155,14 +155,16 @@ a:hover {
 }
 
 /* GRID 2 COLUMNS (HORIZONTAL PANELS) */
-.c-grid-2 {
+.c-grid-2,
+.two-panels {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     margin: 40px 0;
 }
 
-.c-panel {
+.c-panel,
+.panel {
     background: var(--bg-panel);
     border: 1px solid var(--border);
     padding: 48px;
@@ -175,9 +177,42 @@ a:hover {
     overflow: hidden;
 }
 
-.c-panel:hover {
+.c-panel:hover,
+.panel:hover {
     border-color: var(--accent);
     box-shadow: 0 20px 40px var(--glow);
+}
+
+.panel h3 {
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.panel p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.panel li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.panel li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
 }
 
 .c-badge {
