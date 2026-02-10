@@ -20,6 +20,9 @@ interface State {
   viewMode: 'tree' | 'grid'; // 👈 Scelta visualizzazione
   showAdmin: boolean;
   isMobile: boolean; // 👈 Per responsive
+  visibleTabsCount: number; // 👈 Numero tab visibili
+  isDropdownOpen: boolean; // 👈 Menu "altro" aperto
+  selectedUserForDetails?: IOrgUser; // 👈 Utente selezionato per dettagli
 }
 
 export default class CompanyOrgChart
@@ -39,23 +42,99 @@ export default class CompanyOrgChart
     selectedTitle: undefined,
     viewMode: 'tree',
     showAdmin: false,
-    isMobile: window.innerWidth < 768
+    isMobile: window.innerWidth < 768,
+    visibleTabsCount: 100, // Default mostra tutto
+    isDropdownOpen: false,
+    selectedUserForDetails: undefined
   };
 
+  private tabsContainerRef = React.createRef<HTMLDivElement>();
+  private hiddenMeasurerRef = React.createRef<HTMLDivElement>();
+  private dropdownRef = React.createRef<HTMLDivElement>();
+
   async componentDidMount(): Promise<void> {
-    window.addEventListener('resize', this.updateDimensions);
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('click', this.handleClickOutside); // Per chiudere il dropdown
     await Promise.all([
       this.loadTree(),
       this.loadMetadata()
-    ]);
+    ]).then(() => {
+      // Calcola i tab dopo aver caricato i metadati
+      setTimeout(this.calculateVisibleTabs, 100);
+    });
   }
 
   componentWillUnmount(): void {
-    window.removeEventListener('resize', this.updateDimensions);
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('click', this.handleClickOutside);
+  }
+
+  componentDidUpdate(prevProps: ICompanyOrgChartProps, prevState: State): void {
+    // Ricalcola i tab visibili se cambiano i dipartimenti, finisce il caricamento o cambia la modalità mobile
+    if (prevState.departments !== this.state.departments ||
+      (prevState.loading && !this.state.loading) ||
+      prevState.isMobile !== this.state.isMobile) {
+      setTimeout(this.calculateVisibleTabs, 200);
+    }
+  }
+
+  private handleResize = (): void => {
+    this.setState({ isMobile: window.innerWidth < 768 });
+    this.calculateVisibleTabs();
+  }
+
+  private handleClickOutside = (event: MouseEvent): void => {
+    if (this.state.isDropdownOpen && this.dropdownRef.current) {
+      // Chiudi solo se il click è FUORI dal dropdown
+      if (!this.dropdownRef.current.contains(event.target as Node)) {
+        this.setState({ isDropdownOpen: false });
+      }
+    }
+  }
+
+  private calculateVisibleTabs = (): void => {
+    if (!this.tabsContainerRef.current || !this.hiddenMeasurerRef.current) return;
+
+    // Larghezza totale container - Spazio per bottone "..." (ca 80px) - Padding vari
+    const containerWidth = this.tabsContainerRef.current.clientWidth - 100; // Increased buffer
+    const tabNodes = this.hiddenMeasurerRef.current.children;
+
+    let currentWidth = 0;
+    let visibleCount = 0;
+
+    // console.log("Re-calculating Tabs. Container Width:", containerWidth);
+
+    for (let i = 0; i < tabNodes.length; i++) {
+      const node = tabNodes[i] as HTMLElement;
+      // Usiamo getBoundingClientRect per essere più precisi (inclusi decimali)
+      const rect = node.getBoundingClientRect();
+      const tabWidth = rect.width + 12; // Width + gap
+
+      // console.log(`Tab ${i} width: ${tabWidth}. Current: ${currentWidth}`);
+
+      if (currentWidth + tabWidth < containerWidth) {
+        currentWidth += tabWidth;
+        visibleCount++;
+      } else {
+        // console.log("Break at tab", i);
+        break;
+      }
+    }
+
+    // console.log(`Visible Count: ${visibleCount} / ${totalTabs}`);
+
+    // Update state only if changed to avoid loops
+    // Ensure at least 1 tab is visible if possible, or 0 if container is tiny (unlikely)
+    const finalCount = Math.max(1, visibleCount);
+
+    if (this.state.visibleTabsCount !== finalCount) {
+      this.setState({ visibleTabsCount: finalCount });
+    }
   }
 
   private updateDimensions = (): void => {
-    this.setState({ isMobile: window.innerWidth < 768 });
+    // Legacy method, kept for compatibility if called elsewhere, but logic moved to handleResize
+    this.handleResize();
   }
 
   private async loadMetadata(): Promise<void> {
@@ -104,6 +183,7 @@ export default class CompanyOrgChart
         orgTree: tree,
         loading: false,
         expandedNodes: expanded,
+        viewMode: 'tree', // 🔧 FIX: Torniamo sempre all'albero quando ricarichiamo (Mia Posizione/Vista Aziendale)
         currentView: onlySubtree ? 'subtree' : 'company'
       });
     } catch (error) {
@@ -166,10 +246,13 @@ export default class CompanyOrgChart
     const val = e.target.value;
 
     // 🔧 FIX: Reset dipartimento e alfabeto quando si usa la ricerca
+    // Se stiamo iniziando una ricerca, passiamo forzatamente alla vista GRIGLIA
+    // così l'utente vede i risultati e non rimane bloccato sull'albero.
     this.setState({
       search: val,
       selectedLetter: undefined,
-      selectedDepartment: undefined
+      selectedDepartment: undefined,
+      viewMode: val.length >= 3 ? 'grid' : this.state.viewMode // 👈 FORCE GRID ON SEARCH
     });
 
     if (val.length >= 3) {
@@ -182,6 +265,8 @@ export default class CompanyOrgChart
       if (!this.state.selectedLocation) {
         // Nessun filtro attivo -> Reset risultati
         this.setState({ searchResults: [], searching: false });
+        // OPZIONALE: Se svuota la ricerca, potremmo voler tornare all'albero?
+        // Per ora lasciamo l'utente dove si trova (Griglia o Albero precedente)
       } else {
         // Sede attiva -> Mostra tutti nella sede
         await this.applyFilters(undefined, undefined, this.state.selectedLocation, this.state.selectedTitle, undefined);
@@ -191,7 +276,14 @@ export default class CompanyOrgChart
 
   private handleAlphabetClick = async (letter: string): Promise<void> => {
     const nextLetter = this.state.selectedLetter === letter ? undefined : letter;
-    this.setState({ selectedLetter: nextLetter, search: '' });
+
+    // Se seleziono una lettera, passo forzatamente alla GRIGLIA
+    this.setState({
+      selectedLetter: nextLetter,
+      search: '',
+      viewMode: nextLetter ? 'grid' : this.state.viewMode // 👈 FORCE GRID ON LETTER
+    });
+
     // Aggiorniamo subito la ricerca con la lettera (e resettando la search testuale come da UI)
     await this.applyFilters(undefined, this.state.selectedDepartment, this.state.selectedLocation, this.state.selectedTitle, nextLetter);
   }
@@ -210,8 +302,16 @@ export default class CompanyOrgChart
     return (
       <div
         key={user.id}
+        onClick={() => {
+          if (isTree && hasChildren) {
+            this.toggleExpand(user.id); // Changed from toggleNode to toggleExpand
+          } else { // Removed `else if (!isTree)` as it's redundant
+            // Apri pannello dettagli utente (TODO: implementare modale)
+            this.setState({ selectedUserForDetails: user });
+          }
+        }}
         onMouseEnter={() => this.setState({ hoveredNodeId: user.id })}
-        onMouseLeave={() => this.setState({ hoveredNodeId: undefined })}
+        onMouseLeave={() => this.setState({ hoveredNodeId: undefined })} // Changed null to undefined
         style={{
           width: 240, // 👈 Aumentato per migliore leggibilità
           border: '1px solid #e1e1e1',
@@ -223,10 +323,9 @@ export default class CompanyOrgChart
           position: 'relative',
           transition: 'transform 0.25s ease, box-shadow 0.25s ease',
           transform: isHovered ? 'translateY(-5px)' : 'none',
-          cursor: hasChildren ? 'pointer' : 'default',
+          cursor: 'pointer', // Always pointer for click handler
           zIndex: isHovered ? 10001 : 1
         }}
-        onClick={() => hasChildren && this.toggleExpand(user.id)}
       >
         {/* Persona Card on Hover - IMPROVED DESIGN */}
         {isHovered && (
@@ -372,19 +471,7 @@ export default class CompanyOrgChart
           )}
         </div>
 
-        {/* Pulsante 'Visualizza da qui' nella ricerca */}
-        {!isTree && (
-          <button
-            onClick={(e) => { e.stopPropagation(); this.loadTree(user.id).catch(() => { }); }}
-            style={{
-              width: '100%', padding: '6px 0', marginTop: 10,
-              background: '#f0f0f0', color: '#0078D4', border: 'none',
-              borderRadius: 4, cursor: 'pointer', fontSize: 10, fontWeight: 'bold'
-            }}
-          >
-            IMPOSTA COME CAPO
-          </button>
-        )}
+
       </div>
     );
   }
@@ -530,7 +617,10 @@ export default class CompanyOrgChart
       selectedLocation: newLoc,
       selectedTitle: newTitle,
       search: newSearch,
-      selectedLetter: newLetter
+      selectedLetter: newLetter,
+      // 🔧 FIX: Se attiviamo QUALSIASI filtro (Dipartimento, Sede, Titolo), forziamo la vista GRIGLIA
+      // In questo modo l'utente vede subito i risultati anche se era sull'Albero.
+      viewMode: (newDept || newLoc || newTitle || newLetter) ? 'grid' : this.state.viewMode
     });
 
     // Applica i filtri
@@ -563,42 +653,154 @@ export default class CompanyOrgChart
     );
 
     return (
-      <div style={{ padding: '0', backgroundColor: '#f4f7fa', minHeight: '100vh', fontFamily: '"Segoe UI", sans-serif' }}>
+      <div style={{ width: '100%', boxSizing: 'border-box', padding: '0', backgroundColor: '#f4f7fa', minHeight: '100vh', fontFamily: '"Segoe UI", sans-serif' }}>
 
         {/* TOP HEADER - DEPARTMENT TABS */}
-        <div style={{ background: '#fff', borderBottom: '1px solid #e2e8f0', padding: '15px 20px', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
-          <div style={{ display: 'flex', gap: 10, overflowX: 'auto', paddingBottom: 10, scrollbarWidth: 'thin', WebkitOverflowScrolling: 'touch' }}>
-            <button
-              onClick={() => this.handleFilterChange('')}
-              style={{
-                padding: '10px 20px', borderRadius: 6, border: 'none', fontWeight: 600, fontSize: 13,
-                background: !selectedDepartment ? '#5e5adb' : '#f1f5f9',
-                color: !selectedDepartment ? '#fff' : '#64748b',
-                cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.2s',
-                boxShadow: !selectedDepartment ? '0 2px 4px rgba(94, 90, 219, 0.3)' : 'none'
-              }}
-            >
-              Tutti i Dipartimenti
-            </button>
+        <div style={{ background: '#fff', borderBottom: '1px solid #e2e8f0', padding: '15px 0', position: 'sticky', top: 0, zIndex: 1000, boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
+          <style>{`
+            .hide-scrollbar::-webkit-scrollbar { height: 6px; }
+            .hide-scrollbar::-webkit-scrollbar-track { background: transparent; }
+            .hide-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+            .hide-scrollbar::-webkit-scrollbar-thumb:hover { background-color: #94a3b8; }
+            .dept-tab-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+            .dept-tab-btn:active { transform: translateY(0); }
+          `}</style>
+
+          <style>{`.more-btn:hover { background-color: #f1f5f9; }`}</style>
+          {/* VISIBLE TABS CONTAINER */}
+          <div
+            ref={this.tabsContainerRef}
+            style={{
+              display: 'flex', gap: 12, padding: '5px 20px', position: 'relative', alignItems: 'center',
+              width: '100%', overflow: 'visible', boxSizing: 'border-box'
+            }}
+          >
+            {(() => {
+              // Costruiamo la lista completa unificata
+              const allTabs = [
+                { name: '', label: 'Tutti', count: null, isAll: true },
+                ...departments.map(d => ({ name: d.name, label: d.name, count: d.count, isAll: false }))
+              ];
+
+              const visibleTabs = allTabs.slice(0, this.state.visibleTabsCount);
+              const hiddenTabs = allTabs.slice(this.state.visibleTabsCount);
+
+              return (
+                <>
+                  {visibleTabs.map(tab => {
+                    const isSelected = tab.isAll ? (!selectedDepartment) : (selectedDepartment === tab.name);
+                    return (
+                      <button
+                        key={tab.name || 'all'}
+                        onClick={() => this.handleFilterChange(tab.name).catch(() => { })}
+                        className="dept-tab-btn"
+                        style={{
+                          padding: '10px 24px', borderRadius: 30,
+                          border: isSelected ? 'none' : '1px solid #e2e8f0',
+                          fontWeight: isSelected ? 700 : 600, fontSize: 13,
+                          background: isSelected ? 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' : '#fff',
+                          color: isSelected ? '#fff' : '#64748b',
+                          cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.2s',
+                          boxShadow: isSelected ? '0 4px 12px rgba(79, 70, 229, 0.3)' : '0 1px 3px rgba(0,0,0,0.05)',
+                          textTransform: tab.isAll ? 'none' : 'capitalize',
+                          flexShrink: 0
+                        }}
+                      >
+                        {tab.isAll ? 'Tutti' : (
+                          <>
+                            {tab.label.toLowerCase()} <span style={{ opacity: 0.7, marginLeft: 4, fontSize: '0.9em' }}>{tab.count}</span>
+                          </>
+                        )}
+                      </button>
+                    );
+                  })}
+
+                  {/* MORE BUTTON (...) */}
+                  {hiddenTabs.length > 0 && (
+                    <div ref={this.dropdownRef} style={{ position: 'relative', flexShrink: 0 }}>
+                      <button
+                        className="more-btn"
+                        onClick={(e) => {
+                          console.log("Dropdown button clicked! Current state:", this.state.isDropdownOpen);
+                          e.preventDefault();
+                          e.stopPropagation();
+                          this.setState((prevState) => {
+                            console.log("Setting isDropdownOpen to:", !prevState.isDropdownOpen);
+                            return { isDropdownOpen: !prevState.isDropdownOpen };
+                          });
+                        }}
+                        style={{
+                          width: 36, height: 36, borderRadius: '50%', border: '1px solid #e2e8f0',
+                          background: '#fff', color: '#64748b', cursor: 'pointer', display: 'flex',
+                          alignItems: 'center', justifyContent: 'center', fontSize: 16, fontWeight: 700,
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        •••
+                      </button>
+
+                      {/* DROPDOWN MENU */}
+                      {this.state.isDropdownOpen && (() => {
+                        console.log("RENDERING DROPDOWN! Hidden tabs:", hiddenTabs.length);
+                        return (
+                          <div style={{
+                            position: 'absolute', top: '120%', right: 0,
+                            background: '#fff', borderRadius: 12, boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                            border: '1px solid #f1f5f9', padding: '10px', width: 220,
+                            maxHeight: 300, overflowY: 'auto', zIndex: 999999,
+                            display: 'flex', flexDirection: 'column', gap: 5
+                          }}>
+                            {hiddenTabs.map(tab => {
+                              const isSelected = tab.isAll ? (!selectedDepartment) : (selectedDepartment === tab.name);
+                              return (
+                                <button
+                                  key={tab.name || 'all-hidden'}
+                                  onClick={() => { this.handleFilterChange(tab.name).catch(() => { }); this.setState({ isDropdownOpen: false }); }}
+                                  style={{
+                                    padding: '10px 15px', borderRadius: 8, border: 'none',
+                                    textAlign: 'left', cursor: 'pointer', fontSize: 13,
+                                    background: isSelected ? '#eff6ff' : 'transparent',
+                                    color: isSelected ? '#4f46e5' : '#64748b',
+                                    fontWeight: isSelected ? 700 : 500,
+                                    textTransform: tab.isAll ? 'none' : 'capitalize',
+                                    display: 'flex', justifyContent: 'space-between'
+                                  }}
+                                >
+                                  <span>{tab.isAll ? 'Tutti' : tab.label.toLowerCase()}</span>
+                                  {!tab.isAll && <span style={{ opacity: 0.6, fontSize: '0.9em', background: '#f1f5f9', padding: '2px 6px', borderRadius: 10 }}>{tab.count}</span>}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        );
+                      })()}
+                    </div>
+                  )}
+                </>
+              );
+            })()}
+          </div>
+
+          {/* HIDDEN MEASURER (Invisible container to calculate widths) */}
+          <div
+            ref={this.hiddenMeasurerRef}
+            style={{
+              position: 'absolute', top: -9999, left: 0, visibility: 'hidden', pointerEvents: 'none',
+              display: 'flex', gap: 12, padding: '5px 20px',
+              boxSizing: 'border-box',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            <button style={{ padding: '10px 24px', fontWeight: 700, fontSize: 13, border: '1px solid #e2e8f0', borderRadius: 30, whiteSpace: 'nowrap' }}>Tutti</button>
             {departments.map(dept => (
-              <button
-                key={dept.name}
-                onClick={() => this.handleFilterChange(dept.name)}
-                style={{
-                  padding: '10px 20px', borderRadius: 6, border: 'none', fontWeight: 600, fontSize: 13,
-                  background: selectedDepartment === dept.name ? '#5e5adb' : '#f1f5f9',
-                  color: selectedDepartment === dept.name ? '#fff' : '#64748b',
-                  cursor: 'pointer', whiteSpace: 'nowrap', transition: 'all 0.2s',
-                  boxShadow: selectedDepartment === dept.name ? '0 2px 4px rgba(94, 90, 219, 0.3)' : 'none'
-                }}
-              >
-                {dept.name} ({dept.count})
+              <button key={dept.name} style={{ padding: '10px 24px', fontWeight: 700, fontSize: 13, textTransform: 'capitalize', border: '1px solid #e2e8f0', borderRadius: 30, whiteSpace: 'nowrap' }}>
+                {dept.name.toLowerCase()} <span style={{ marginLeft: 4 }}>{dept.count}</span>
               </button>
             ))}
           </div>
         </div>
 
-        <div style={{ maxWidth: '1600px', margin: '0 auto', padding: isMobile ? '10px 15px' : '20px 30px' }}>
+        <div style={{ maxWidth: '100%', margin: '0 auto', padding: isMobile ? '10px 15px' : '20px 30px' }}>
 
           {/* ACTION BAR */}
           <div style={{
@@ -610,7 +812,15 @@ export default class CompanyOrgChart
               <h2 style={{ margin: 0, fontSize: isMobile ? 20 : 24, color: '#1e293b' }}>Struttura Aziendale</h2>
               <div style={{ background: '#fff', borderRadius: 8, padding: 4, display: 'flex', border: '1px solid #e2e8f0' }}>
                 <button
-                  onClick={() => this.setState({ viewMode: 'tree' })}
+                  onClick={() => this.setState({
+                    viewMode: 'tree',
+                    // 🔧 FIX: Reset COMPLETO di tutti i filtri "lista" quando si torna all'albero.
+                    search: '',
+                    selectedLetter: undefined,
+                    selectedDepartment: undefined,
+                    selectedLocation: undefined,
+                    selectedTitle: undefined
+                  })}
                   style={{
                     padding: '6px 12px', borderRadius: 6, border: 'none', cursor: 'pointer', fontSize: 12, fontWeight: 600,
                     background: viewMode === 'tree' ? '#ecfdf5' : 'transparent', color: viewMode === 'tree' ? '#10b981' : '#64748b',
@@ -634,13 +844,13 @@ export default class CompanyOrgChart
 
             <div style={{ display: 'flex', gap: 10, justifyContent: isMobile ? 'space-between' : 'flex-end' }}>
               <button
-                onClick={() => this.loadTree(undefined, true)}
+                onClick={() => this.loadTree(undefined, true).catch(() => { })}
                 style={{ padding: '8px 16px', borderRadius: 6, border: '1px solid #3b82f6', background: '#fff', color: '#3b82f6', fontWeight: 600, cursor: 'pointer', fontSize: 13 }}
               >
                 Mia Posizione
               </button>
               <button
-                onClick={() => this.loadTree()}
+                onClick={() => this.loadTree().catch(() => { })}
                 style={{ padding: '8px 16px', borderRadius: 6, border: 'none', background: '#0078D4', color: '#fff', fontWeight: 600, cursor: 'pointer', fontSize: 13, boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2)' }}
               >
                 Vista Aziendale
@@ -651,7 +861,8 @@ export default class CompanyOrgChart
           {/* FILTER ROW */}
           <div style={{
             background: '#fff', padding: 20, borderRadius: 12, boxShadow: '0 4px 6px rgba(0,0,0,0.02)', marginBottom: 25,
-            display: 'flex', flexWrap: 'wrap', gap: 15, alignItems: 'center', border: '1px solid #e2e8f0'
+            display: 'flex', flexWrap: 'wrap', gap: 15, alignItems: 'center', border: '1px solid #e2e8f0',
+            position: 'relative', zIndex: 50 // 🔧 FIX: Assicuriamo che i filtri stiano SOPRA l'albero (che ha margine negativo)
           }}>
             <div style={{ flex: '1 1 300px', position: 'relative' }}>
               <svg style={{ position: 'absolute', left: 12, top: 12, width: 18, height: 18, fill: '#94a3b8' }} viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" /></svg>
@@ -670,7 +881,7 @@ export default class CompanyOrgChart
             <div style={{ position: 'relative', flex: '0 1 200px' }}>
               <select
                 value={selectedLocation || ''}
-                onChange={(e) => this.handleFilterChange(undefined, e.target.value || undefined)}
+                onChange={(e) => this.handleFilterChange(undefined, e.target.value || undefined).catch(() => { })}
                 style={{
                   width: '100%',
                   padding: '10px 35px 10px 40px',
@@ -769,6 +980,137 @@ export default class CompanyOrgChart
             </div>
           )}
         </div>
+
+        {/* USER DETAILS MODAL */}
+        {this.state.selectedUserForDetails && (
+          <div
+            onClick={() => this.setState({ selectedUserForDetails: undefined })}
+            style={{
+              position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+              background: 'rgba(0,0,0,0.5)', zIndex: 10000,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: 20
+            }}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                background: '#fff', borderRadius: 16, maxWidth: 500, width: '100%',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.3)', overflow: 'hidden',
+                animation: 'fadeIn 0.2s ease-in'
+              }}
+            >
+              {/* Header */}
+              <div style={{
+                background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                padding: 30, textAlign: 'center', position: 'relative'
+              }}>
+                <button
+                  onClick={() => this.setState({ selectedUserForDetails: undefined })}
+                  style={{
+                    position: 'absolute', top: 15, right: 15,
+                    background: 'rgba(255,255,255,0.2)', border: 'none',
+                    borderRadius: '50%', width: 32, height: 32,
+                    color: '#fff', fontSize: 20, cursor: 'pointer',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                  }}
+                >×</button>
+                <div style={{
+                  width: 100, height: 100, borderRadius: '50%',
+                  margin: '0 auto 15px', background: '#fff',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: 36, fontWeight: 700, color: '#6366f1',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                  overflow: 'hidden'
+                }}>
+                  {this.state.selectedUserForDetails.photoUrl ? (
+                    <img
+                      src={this.state.selectedUserForDetails.photoUrl}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                  ) : this.state.selectedUserForDetails.displayName.split(' ').map((n: string) => n[0]).join('').toUpperCase()}
+                </div>
+                <h2 style={{ margin: 0, color: '#fff', fontSize: 24, fontWeight: 700 }}>
+                  {this.state.selectedUserForDetails.displayName}
+                </h2>
+                <div style={{ color: 'rgba(255,255,255,0.9)', fontSize: 14, marginTop: 5 }}>
+                  {this.state.selectedUserForDetails.jobTitle || 'Nessun ruolo specificato'}
+                </div>
+              </div>
+
+              {/* Body */}
+              <div style={{ padding: 30 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                  {this.state.selectedUserForDetails.department && (
+                    <div>
+                      <div style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, marginBottom: 5, textTransform: 'uppercase' }}>Dipartimento</div>
+                      <div style={{ fontSize: 15, color: '#1e293b', fontWeight: 600 }}>{this.state.selectedUserForDetails.department}</div>
+                    </div>
+                  )}
+                  {this.state.selectedUserForDetails.officeLocation && (
+                    <div>
+                      <div style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, marginBottom: 5, textTransform: 'uppercase' }}>Sede</div>
+                      <div style={{ fontSize: 15, color: '#1e293b', fontWeight: 600 }}>{this.state.selectedUserForDetails.officeLocation}</div>
+                    </div>
+                  )}
+                  {this.state.selectedUserForDetails.mail && (
+                    <div>
+                      <div style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, marginBottom: 5, textTransform: 'uppercase' }}>Email</div>
+                      <a href={`mailto:${this.state.selectedUserForDetails.mail}`} style={{ fontSize: 15, color: '#6366f1', textDecoration: 'none', fontWeight: 600 }}>
+                        {this.state.selectedUserForDetails.mail}
+                      </a>
+                    </div>
+                  )}
+                  {this.state.selectedUserForDetails.mobilePhone && (
+                    <div>
+                      <div style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, marginBottom: 5, textTransform: 'uppercase' }}>Telefono</div>
+                      <div style={{ fontSize: 15, color: '#1e293b', fontWeight: 600 }}>{this.state.selectedUserForDetails.mobilePhone}</div>
+                    </div>
+                  )}
+                  {this.state.selectedUserForDetails.businessPhones && this.state.selectedUserForDetails.businessPhones.length > 0 && (
+                    <div>
+                      <div style={{ fontSize: 11, color: '#94a3b8', fontWeight: 600, marginBottom: 5, textTransform: 'uppercase' }}>Telefono Ufficio</div>
+                      <div style={{ fontSize: 15, color: '#1e293b', fontWeight: 600 }}>{this.state.selectedUserForDetails.businessPhones[0]}</div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions */}
+                <div style={{ display: 'flex', gap: 10, marginTop: 30 }}>
+                  {this.state.selectedUserForDetails.mail && (
+                    <a
+                      href={`mailto:${this.state.selectedUserForDetails.mail}`}
+                      style={{
+                        flex: 1, padding: '12px 20px', borderRadius: 8,
+                        background: '#6366f1', color: '#fff', textDecoration: 'none',
+                        textAlign: 'center', fontWeight: 600, fontSize: 14,
+                        border: 'none', cursor: 'pointer'
+                      }}
+                    >
+                      📧 Invia Email
+                    </a>
+                  )}
+                  {this.state.selectedUserForDetails.userPrincipalName && (
+                    <a
+                      href={`https://teams.microsoft.com/l/chat/0/0?users=${this.state.selectedUserForDetails.userPrincipalName}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        flex: 1, padding: '12px 20px', borderRadius: 8,
+                        background: '#6264A7', color: '#fff', textDecoration: 'none',
+                        textAlign: 'center', fontWeight: 600, fontSize: 14,
+                        border: 'none', cursor: 'pointer'
+                      }}
+                    >
+                      💬 Chat Teams
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* FOOTER */}
         <div style={{

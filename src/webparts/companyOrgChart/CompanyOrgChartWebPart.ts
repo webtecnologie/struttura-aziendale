@@ -43,6 +43,10 @@ export default class CompanyOrgChartWebPart
         userDisplayName: this.context.pageContext.user.displayName
       });
 
+    // Forzare la larghezza del contenitore della Web Part
+    this.domElement.style.width = "100%";
+    this.domElement.style.maxWidth = "100%";
+
     ReactDom.render(element, this.domElement);
   }
 

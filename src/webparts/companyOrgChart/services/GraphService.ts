@@ -80,20 +80,15 @@ export default class GraphService {
   public async getUsers(query?: string, department?: string, location?: string, title?: string): Promise<IOrgUser[]> {
     const client = await this.getClient();
     const filters = ["accountEnabled eq true", "userType eq 'Member'"];
-    let searchQuery = "";
-
     // 1. Logica Ricerca
     if (query && query.trim().length > 0) {
       const q = query.trim().replace(/'/g, "''");
 
       if (q.length === 1) {
-        // PER ALFABETO: Usiamo filtro startsWith (preciso per l'iniziale)
+        // PER ALFABETO: Usiamo filtro startsWith (preciso per l'iniziale) lato server
         filters.push(`(startsWith(displayName,'${q}') or startsWith(givenName,'${q}') or startsWith(surname,'${q}'))`);
-      } else {
-        // PER TESTO: Usiamo $search (potente, trova token in nome/cognome/mail)
-        // Nota: $search cerca automaticamente in displayName, surname, givenName, mail, userPrincipalName
-        searchQuery = `"${q}"`;
       }
+      // SE > 1: Filtriamo lato client dopo il fetch per avere "substring match" (includes)
     }
 
     // 2. Filtro Dipartimento
@@ -112,21 +107,33 @@ export default class GraphService {
     }
 
     // Costruiamo la richiesta
-    let req = client.api('/users')
+    const req = client.api('/users')
       .header('ConsistencyLevel', 'eventual')
       .count(true)
       .filter(filters.join(' and '))
       .select('id,displayName,jobTitle,mail,userPrincipalName,mobilePhone,officeLocation,businessPhones,accountEnabled,userType,surname,givenName,department')
       .top(999);
 
-    // Applichiamo la search se presente
-    if (searchQuery) {
-      req = req.search(searchQuery);
-    }
+    // NOTA: Non usiamo più .search() lato server perché non supporta il "contains" su stringhe parziali (es. "mart" per "martino")
 
     const res = await req.get();
 
-    const users = (res.value || []).filter((u: IOrgUser) => u.mail && u.surname);
+    let users = (res.value || []).filter((u: IOrgUser) => u.mail && u.surname);
+
+    // Logica Client-Side Search (per query > 1 char)
+    if (query && query.trim().length > 1) {
+      const q = query.toLowerCase().trim();
+      users = users.filter((u: IOrgUser) =>
+        (u.displayName?.toLowerCase().includes(q)) ||
+        (u.surname?.toLowerCase().includes(q)) ||
+        (u.givenName?.toLowerCase().includes(q)) ||
+        (u.mail?.toLowerCase().includes(q)) ||
+        (u.jobTitle?.toLowerCase().includes(q))
+      );
+    }
+
+    // Ordinamento Alfabetico
+    users.sort((a: IOrgUser, b: IOrgUser) => (a.displayName || "").localeCompare(b.displayName || ""));
 
     return Promise.all(users.map(async (u: IOrgUser) => {
       const photoUrl = await this.getUserPhotoUrl(u.id, u.mail, u.userPrincipalName);
