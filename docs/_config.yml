@@ -1,10 +1,12 @@
-title: WebTecnologie
-description: Sviluppo web, soluzioni digitali e applicazioni moderne con integrazioni AI per cloud, enterprise e WordPress.
+title: "Alessandro Petrone - Consulente Informatico"
+description: "Alessandro Petrone consulente informatico specializzato in WordPress, Docker, AI e sviluppo backend. Telefono: +39 334 508 8206"
+
 baseurl: "/struttura-aziendale"
 url: "https://webtecnologie.github.io"
 
 markdown: kramdown
 
+# ✅ NAVIGAZIONE
 nav:
   - name: Home
     url: /
@@ -15,6 +17,7 @@ nav:
   - name: Contatti
     url: /contatti
 
+# ✅ NAV INGLESE
 nav_en:
   - name: Home
     url: /en/
@@ -25,9 +28,21 @@ nav_en:
   - name: Contact
     url: /en/contact/
 
-
+# ✅ BRAND (frontend)
 brand:
   name: WebTecnologie
   logo: /assets/img/logo.png
-  # Se vuoi anche variante scura, aggiungi la riga sotto:
-  # logo_dark: /assets/img/logo-dark.png
+
+# ✅ SEO EXTRA (BOOST)
+author: "Alessandro Petrone"
+lang: it
+
+# ✅ SOCIAL / STRUCTURED DATA READY
+social:
+  name: "Alessandro Petrone"
+  links:
+    - "https://webtecnologie.github.io/struttura-aziendale/"
+
+# ✅ PLUGIN STANDARD (GitHub Pages safe)
+plugins:
+  - jekyll-seo-tag
