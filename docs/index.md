@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Home
-description: Soluzioni AI per aziende moderne. Esperti in innovazione digitale e Web development.
+title: Alessandro Petrone - Consulente Informatico
+description: Alessandro Petrone consulente informatico specializzato in WordPress, Docker, AI e sviluppo backend. Telefono: +39 334 508 8206
 lang: it
 permalink: /
 ---
@@ -10,6 +10,13 @@ permalink: /
   
   <!-- HERO -->
   <header class="c-hero c-fade-up">
+
+    <!-- BOOST CALLER ID (INVISIBILE) -->
+    <div style="display:none;">
+      Alessandro Petrone - Consulente Informatico
+      Telefono: +39 334 508 8206
+    </div>
+
     <h1>Costruiamo il futuro digitale della tua azienda</h1>
     <p>Trasformiamo le tue idee in soluzioni tecnologiche performanti. Dall'intelligenza artificiale generativa allo sviluppo cloud su misura.</p>
     <div class="hero-cta-group">
@@ -94,3 +101,16 @@ permalink: /
   </div>
 
 </div>
+
+<!-- ✅ SCHEMA ORG (FONDAMENTALE) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alessandro Petrone",
+  "jobTitle": "Consulente Informatico",
+  "telephone": "+393345088206",
+  "url": "https://webtecnologie.github.io/struttura-aziendale/"
+}
+</script>
+``
