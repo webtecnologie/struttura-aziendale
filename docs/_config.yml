@@ -44,5 +44,8 @@ social:
     - "https://webtecnologie.github.io/struttura-aziendale/"
 
 # ✅ PLUGIN STANDARD (GitHub Pages safe)
+
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitema
+
