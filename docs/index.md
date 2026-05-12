@@ -24,6 +24,12 @@ permalink: /
       <a href="/struttura-aziendale/contatti/" class="c-btn-primary">Inizia ora</a>
       <a href="/struttura-aziendale/servizi/" class="c-btn-secondary">Scopri i servizi</a>
     </div>
+
+    <!-- ✅ NUMERO VISIBILE (IMPORTANTISSIMO) -->
+    <p style="text-align:center; margin-top:20px;">
+      📞 +39 334 508 8206
+    </p>
+
   </header>
 
   <!-- PANNELLI 2 COLONNE -->
@@ -103,14 +109,30 @@ permalink: /
 
 </div>
 
-<!-- ✅ SCHEMA ORG -->
+<!-- ✅ SCHEMA COMPLETO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Alessandro Petrone",
-  "jobTitle": "Consulente Informatico",
-  "telephone": "+393345088206",
-  "url": "https://webtecnologie.github.io/struttura-aziendale/"
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Alessandro Petrone",
+      "jobTitle": "Consulente Informatico",
+      "telephone": "+393345088206",
+      "url": "https://webtecnologie.github.io/struttura-aziendale/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Napoli",
+        "addressCountry": "IT"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "Web Tecnologie",
+      "url": "https://webtecnologie.github.io/struttura-aziendale/",
+      "logo": "https://webtecnologie.github.io/struttura-aziendale/favicon.png",
+      "telephone": "+393345088206"
+    }
+  ]
 }
 </script>
