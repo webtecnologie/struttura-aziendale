@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Alessandro Petrone - Consulente Informatico
-description: Alessandro Petrone consulente informatico specializzato in WordPress, Docker, AI e sviluppo backend. Telefono: +39 334 508 8206
+title: "Alessandro Petrone - Consulente Informatico"
+description: "Alessandro Petrone consulente informatico specializzato in WordPress, Docker, AI e sviluppo backend. Telefono: +39 334 508 8206"
 lang: it
 permalink: /
 ---
@@ -19,6 +19,7 @@ permalink: /
 
     <h1>Costruiamo il futuro digitale della tua azienda</h1>
     <p>Trasformiamo le tue idee in soluzioni tecnologiche performanti. Dall'intelligenza artificiale generativa allo sviluppo cloud su misura.</p>
+    
     <div class="hero-cta-group">
       <a href="/struttura-aziendale/contatti/" class="c-btn-primary">Inizia ora</a>
       <a href="/struttura-aziendale/servizi/" class="c-btn-secondary">Scopri i servizi</a>
@@ -56,7 +57,7 @@ permalink: /
     <div class="c-radial-icon" style="transform: translate(60px, -90px);">📊</div>
   </section>
 
-  <!-- CASE STUDY SECTION -->
+  <!-- CASE STUDY -->
   <section id="projects" class="c-fade-up" style="animation-delay: 0.3s; margin: 80px 0;">
     <div class="c-case-study">
       <div class="c-case-img">
@@ -71,7 +72,7 @@ permalink: /
     </div>
   </section>
 
-  <!-- PANNELLI FOOTER-LIKE -->
+  <!-- CONTACT -->
   <section id="contact" class="c-fade-up" style="animation-delay: 0.4s; margin-bottom: 120px;">
     <div class="c-grid-2">
       <div class="c-panel" style="text-align: center; align-items: center;">
@@ -102,7 +103,7 @@ permalink: /
 
 </div>
 
-<!-- ✅ SCHEMA ORG (FONDAMENTALE) -->
+<!-- ✅ SCHEMA ORG -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -113,4 +114,3 @@ permalink: /
   "url": "https://webtecnologie.github.io/struttura-aziendale/"
 }
 </script>
-``
